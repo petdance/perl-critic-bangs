@@ -4,18 +4,22 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.6	//
+ADD_EXCEPTIONS	t/numbered.t	/^ADD_EXCEPTIONS: {$/;"	l
+ADD_FROM_CONFIG	t/vague.t	/^ADD_FROM_CONFIG: {$/;"	l
 ALL_FORMS	t/vague.t	/^ALL_FORMS: {$/;"	l
 BASIC	t/commented-out-code.t	/^BASIC: {$/;"	l
 BASIC	t/no_plan.t	/^BASIC: {$/;"	l
 COMPLETENESS	t/numbered.t	/^COMPLETENESS: {$/;"	l
 COMPLETENESS	t/vague.t	/^COMPLETENESS: {$/;"	l
+DEFAULT_EXCEPTIONS	t/numbered.t	/^DEFAULT_EXCEPTIONS: {$/;"	l
 PerlCriticTestUtils	t/commented-out-code.t	/^PerlCriticTestUtils::block_perlcriticrc();$/;"	l
 PerlCriticTestUtils	t/flag-comments.t	/^PerlCriticTestUtils::block_perlcriticrc();$/;"	l
 PerlCriticTestUtils	t/no_plan.t	/^PerlCriticTestUtils::block_perlcriticrc();$/;"	l
 PerlCriticTestUtils	t/numbered.t	/^PerlCriticTestUtils::block_perlcriticrc();$/;"	l
 PerlCriticTestUtils	t/refproto.t	/^PerlCriticTestUtils::block_perlcriticrc();$/;"	l
 PerlCriticTestUtils	t/vague.t	/^PerlCriticTestUtils::block_perlcriticrc();$/;"	l
-WEIRDOS	t/numbered.t	/^WEIRDOS: {$/;"	l
+REPLACE_EXCEPTIONS	t/numbered.t	/^REPLACE_EXCEPTIONS: {$/;"	l
+REPLACE_FROM_CONFIG	t/vague.t	/^REPLACE_FROM_CONFIG: {$/;"	l
 applies_to	lib/Perl/Critic/Policy/Bangs/ProhibitCommentedOutCode.pm	/^sub applies_to { return 'PPI::Token::Comment' }$/;"	s
 applies_to	lib/Perl/Critic/Policy/Bangs/ProhibitFlagComments.pm	/^sub applies_to { return 'PPI::Token::Comment' }$/;"	s
 applies_to	lib/Perl/Critic/Policy/Bangs/ProhibitNoPlan.pm	/^sub applies_to { return 'PPI::Token::QuoteLike::Words' }$/;"	s
