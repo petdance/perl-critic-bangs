@@ -1,0 +1,45 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.6	//
+ALL_FORMS	t/vague.t	/^ALL_FORMS: {$/;"	l
+BASIC	t/commented-out-code.t	/^BASIC: {$/;"	l
+BASIC	t/no_plan.t	/^BASIC: {$/;"	l
+COMPLETENESS	t/numbered.t	/^COMPLETENESS: {$/;"	l
+COMPLETENESS	t/vague.t	/^COMPLETENESS: {$/;"	l
+PerlCriticTestUtils	t/commented-out-code.t	/^PerlCriticTestUtils::block_perlcriticrc();$/;"	l
+PerlCriticTestUtils	t/flag-comments.t	/^PerlCriticTestUtils::block_perlcriticrc();$/;"	l
+PerlCriticTestUtils	t/no_plan.t	/^PerlCriticTestUtils::block_perlcriticrc();$/;"	l
+PerlCriticTestUtils	t/numbered.t	/^PerlCriticTestUtils::block_perlcriticrc();$/;"	l
+PerlCriticTestUtils	t/refproto.t	/^PerlCriticTestUtils::block_perlcriticrc();$/;"	l
+PerlCriticTestUtils	t/vague.t	/^PerlCriticTestUtils::block_perlcriticrc();$/;"	l
+WEIRDOS	t/numbered.t	/^WEIRDOS: {$/;"	l
+applies_to	lib/Perl/Critic/Policy/Bangs/ProhibitCommentedOutCode.pm	/^sub applies_to { return 'PPI::Token::Comment' }$/;"	s
+applies_to	lib/Perl/Critic/Policy/Bangs/ProhibitFlagComments.pm	/^sub applies_to { return 'PPI::Token::Comment' }$/;"	s
+applies_to	lib/Perl/Critic/Policy/Bangs/ProhibitNoPlan.pm	/^sub applies_to { return 'PPI::Token::QuoteLike::Words' }$/;"	s
+applies_to	lib/Perl/Critic/Policy/Bangs/ProhibitNumberedNames.pm	/^sub applies_to { return 'PPI::Token::Symbol' }$/;"	s
+applies_to	lib/Perl/Critic/Policy/Bangs/ProhibitRefProtoOrProto.pm	/^sub applies_to { return 'PPI::Token::Word' }$/;"	s
+applies_to	lib/Perl/Critic/Policy/Bangs/ProhibitVagueNames.pm	/^sub applies_to { return 'PPI::Token::Symbol' }$/;"	s
+block_perlcriticrc	t/tlib/PerlCriticTestUtils.pm	/^sub block_perlcriticrc {$/;"	s
+critique	t/tlib/PerlCriticTestUtils.pm	/^sub critique {$/;"	s
+default_severity	lib/Perl/Critic/Policy/Bangs/ProhibitCommentedOutCode.pm	/^sub default_severity { return $SEVERITY_LOW }$/;"	s
+default_severity	lib/Perl/Critic/Policy/Bangs/ProhibitFlagComments.pm	/^sub default_severity { return $SEVERITY_LOW }$/;"	s
+default_severity	lib/Perl/Critic/Policy/Bangs/ProhibitNoPlan.pm	/^sub default_severity { return $SEVERITY_HIGHEST }$/;"	s
+default_severity	lib/Perl/Critic/Policy/Bangs/ProhibitNumberedNames.pm	/^sub default_severity { return $SEVERITY_MEDIUM }$/;"	s
+default_severity	lib/Perl/Critic/Policy/Bangs/ProhibitRefProtoOrProto.pm	/^sub default_severity { return $SEVERITY_HIGH }$/;"	s
+default_severity	lib/Perl/Critic/Policy/Bangs/ProhibitVagueNames.pm	/^sub default_severity { return $SEVERITY_MEDIUM }$/;"	s
+new	lib/Perl/Critic/Policy/Bangs/ProhibitCommentedOutCode.pm	/^sub new {$/;"	s
+new	lib/Perl/Critic/Policy/Bangs/ProhibitFlagComments.pm	/^sub new {$/;"	s
+new	lib/Perl/Critic/Policy/Bangs/ProhibitNoPlan.pm	/^sub new {$/;"	s
+new	lib/Perl/Critic/Policy/Bangs/ProhibitNumberedNames.pm	/^sub new {$/;"	s
+new	lib/Perl/Critic/Policy/Bangs/ProhibitRefProtoOrProto.pm	/^sub new {$/;"	s
+new	lib/Perl/Critic/Policy/Bangs/ProhibitVagueNames.pm	/^sub new {$/;"	s
+pcritique	t/tlib/PerlCriticTestUtils.pm	/^sub pcritique {$/;"	s
+violates	lib/Perl/Critic/Policy/Bangs/ProhibitCommentedOutCode.pm	/^sub violates {$/;"	s
+violates	lib/Perl/Critic/Policy/Bangs/ProhibitFlagComments.pm	/^sub violates {$/;"	s
+violates	lib/Perl/Critic/Policy/Bangs/ProhibitNoPlan.pm	/^sub violates {$/;"	s
+violates	lib/Perl/Critic/Policy/Bangs/ProhibitNumberedNames.pm	/^sub violates {$/;"	s
+violates	lib/Perl/Critic/Policy/Bangs/ProhibitRefProtoOrProto.pm	/^sub violates {$/;"	s
+violates	lib/Perl/Critic/Policy/Bangs/ProhibitVagueNames.pm	/^sub violates {$/;"	s

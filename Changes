@@ -1,0 +1,10 @@
+Revision history for Perl-Critic-Bangs
+
+0.22    Sun Jul 16 22:09:10 CDT 2006
+        [FIXES]
+        * $1 no longer runs afoul of ProhibitNumberedNames
+
+0.20    Fri Jul 14 22:36:09 CDT 2006
+        First real working version that you'd want to install.
+
+
