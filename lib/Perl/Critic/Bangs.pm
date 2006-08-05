@@ -99,6 +99,10 @@ L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Perl-Critic-Bangs>
 
 L<http://search.cpan.org/dist/Perl-Critic-Bangs>
 
+=item * Subversion repository
+
+L<http://perl-critic-bangs.googlecode.com/svn/>
+
 =back
 
 =head1 ACKNOWLEDGEMENTS
