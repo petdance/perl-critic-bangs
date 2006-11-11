@@ -32,6 +32,7 @@ DEFAULT_EXCEPTIONS: {
 
     my $md5;
     my $x11;
+    my $UTF8;
 END_PERL
 
     is( pcritique($test_policy, \$code), 0, "Exceptions OK" );

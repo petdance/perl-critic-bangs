@@ -12,6 +12,7 @@ sub applies_to { return 'PPI::Token::Symbol' }
 our @DEFAULT_EXCEPTIONS = qw(
     md5
     x11
+    utf8
 );
 
 =head1 NAME
@@ -43,7 +44,7 @@ for more of my ranting on this.
 This policy starts with a list of numbered names that are legitimate
 to have ending with a number:
 
-    md5, x11
+    md5, x11, utf8
 
 To replace the list of exceptions, pass them into the constructor
 as a key-value pair where the key is "exceptions" and the value is
@@ -92,6 +93,7 @@ sub violates {
     $basename =~ s/^[\$@%]//;
 
     if ( $basename =~ /\D+\d+$/ ) {
+        $basename = lc $basename;
         for my $exception ( @{$self->{_exceptions}} ) {
             return if $exception eq $basename;
         }
