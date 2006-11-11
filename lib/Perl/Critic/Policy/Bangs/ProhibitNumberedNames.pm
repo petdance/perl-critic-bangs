@@ -93,6 +93,7 @@ sub violates {
     $basename =~ s/^[\$@%]//;
 
     if ( $basename =~ /\D+\d+$/ ) {
+        $basename =~ s/.+_(.+)/$1/; # handle things like "partial_md5"
         $basename = lc $basename;
         for my $exception ( @{$self->{_exceptions}} ) {
             return if $exception eq $basename;

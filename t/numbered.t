@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-use Test::More tests => 6;
+use Test::More tests => 7;
 use Perl::Critic::Config;
 use Perl::Critic;
 
@@ -43,7 +43,7 @@ DEFAULT_EXCEPTIONS: {
     my $UTF8;
 END_PERL
 
-    is( pcritique($test_policy, \$code), 0, "Exceptions OK" );
+    is( pcritique($test_policy, \$code), 0, 'Exceptions OK' );
 }
 
 REPLACE_EXCEPTIONS: {
@@ -54,7 +54,7 @@ REPLACE_EXCEPTIONS: {
     my $logan7;
 END_PERL
 
-    is( pcritique($test_policy, \$code, {exceptions=>'logan7'}), 2, "Replace exceptions" );
+    is( pcritique($test_policy, \$code, {exceptions=>'logan7'}), 2, 'Replace exceptions' );
 }
 
 ADD_EXCEPTIONS: {
@@ -65,6 +65,14 @@ ADD_EXCEPTIONS: {
     my $logan7;
 END_PERL
 
-    is( pcritique($test_policy, \$code, {add_exceptions=>'logan7'}), 0, "Added exceptions" );
+    is( pcritique($test_policy, \$code, {add_exceptions=>'logan7'}), 0, 'Added exceptions' );
 }
 
+PARTIAL_NAMES: {
+    my $code = <<'END_PERL';
+
+    my $generated_md5;
+END_PERL
+
+    is( pcritique($test_policy, \$code), 0, 'Exceptions OK' );
+}
