@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-use Test::More tests => 5;
+use Test::More tests => 6;
 use Perl::Critic::Config;
 use Perl::Critic;
 
@@ -25,6 +25,14 @@ COMPLETENESS: {
 END_PERL
 
     is( pcritique($test_policy, \$code), 3);
+}
+
+SUBROUTINES: {
+    my $code = <<'END_PERL';
+    sub utf8 { return; }
+END_PERL
+
+    is( pcritique($test_policy, \$code), 0 );
 }
 
 DEFAULT_EXCEPTIONS: {
