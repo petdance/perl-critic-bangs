@@ -34,7 +34,7 @@ sub violates {
     if ( $elem =~ $self->{_commentedcoderegex} ) {
         my $sev  = $self->get_severity();
         my $desc = q(Code found in comment);
-        my $expl = q(Commented-out code found can be confusing.);
+        my $expl = q(Commented-out code found can be confusing);
         return Perl::Critic::Violation->new( $desc, $expl, $elem, $sev );
     }
     return;
