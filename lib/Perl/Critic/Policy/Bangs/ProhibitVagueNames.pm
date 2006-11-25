@@ -6,6 +6,8 @@ use Perl::Critic::Utils;
 use Perl::Critic::Violation;
 use base 'Perl::Critic::Policy';
 
+sub default_severity { return $SEVERITY_MEDIUM }
+sub applies_to { return 'PPI::Token::Symbol' }
 our @DEFAULT_VAGUE_NAMES = qw(
     data
     info
@@ -15,9 +17,6 @@ our @DEFAULT_VAGUE_NAMES = qw(
     tmp
     temp
 );
-
-sub default_severity { return $SEVERITY_MEDIUM }
-sub applies_to { return 'PPI::Token::Symbol' }
 
 =head1 NAME
 
@@ -59,14 +58,15 @@ sub new {
     my %config = @_;
 
     my $self = bless {}, $class;
-    $self->{_names} = [ @DEFAULT_VAGUE_NAMES ];
 
     # Set list of vague names from configuration, if defined.
-    if ( defined $config{names} ) {
-        $self->{_names} = [ split m{ \s+ }mx, $config{names} ];
+    $self->{_names} =
+        defined $config{names}
+            ? [ split m{ \s+ }mx, $config{names} ]
+            : [ @DEFAULT_VAGUE_NAMES ];
 
     # Add to list of vague names
-    } elsif ( defined $config{add_names} ) {
+    if ( defined $config{add_names} ) {
         push( @{$self->{_names}}, split m{ \s+ }mx, $config{add_names} );
     }
 
