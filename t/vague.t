@@ -46,7 +46,7 @@ ADD_FROM_CONFIG: {
     my $data = 'bonzo';
 END_PERL
 
-    is( pcritique($test_policy, \$code, {add_names=>'unspecific vague mumbly'}), 2, "Should find new vague name");
+    is( pcritique($test_policy, \$code, {add_names=>'unspecific vague mumbly'}), 2, 'Should find new vague name');
 }
 
 REPLACE_FROM_CONFIG: {
@@ -55,5 +55,5 @@ REPLACE_FROM_CONFIG: {
     my $data = 'bonzo';
 END_PERL
 
-    is( pcritique($test_policy, \$code, {names=>'unspecific vague mumbly'}), 1, "Should find ONLY new vague name");
+    is( pcritique($test_policy, \$code, {names=>'unspecific vague mumbly'}), 1, 'Should find ONLY new vague name');
 }
