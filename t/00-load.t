@@ -1,11 +1,10 @@
 #!perl -T
 
-use Test::More tests => 2;
+use Test::More tests => 1;
+use Perl::Critic;
 
 BEGIN {
     use_ok( 'Perl::Critic::Bangs' );
-    use_ok( 'Perl::Critic::Policy::Bangs::ProhibitVagueNames' );
-    #use_ok( 'Perl::Critic::Policy::Bangs::ProhibitNumberedNames' );
 }
 
-diag( "Testing Perl::Critic::Bangs $Perl::Critic::Bangs::VERSION, Perl $], $^X" );
+diag( "Testing Perl::Critic::Bangs $Perl::Critic::Bangs::VERSION, Perl $], $^X, Perl::Critic $Perl::Critic::VERSION" );
