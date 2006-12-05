@@ -30,7 +30,7 @@ sub violates {
     my ( $self, $elem, $doc ) = @_;
 
     foreach my $keyword ( @{$self->{'_keywords'}} ) {
-        if ( index( $elem->content(), $keyword ) ne -1 ) {
+        if ( index( $elem->content(), $keyword ) != -1 ) {
             my $desc = qq(Flag comment '$keyword' found);
             my $expl = qq(Comments containing "$keyword" typically indicate bugs or problems that the developer knows exist);
             return Perl::Critic::Violation->new( $desc, $expl, $elem, $self->get_severity );
