@@ -10,7 +10,7 @@ WriteMakefile(
     ABSTRACT            => 'Perl::Critic::Bangs - A collection of policies for Perl::Critic',
     PL_FILES            => {},
     PREREQ_PM => {
-        'Perl::Critic' => 0,
+        'Perl::Critic' => 0.21_01,
         'Test::More' => 0,
     },
     LICENSE             => 'perl',
