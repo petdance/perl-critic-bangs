@@ -33,7 +33,7 @@ sub MY::libscan {
 
 sub MY::postamble {
     return <<'MAKE_FRAG';
-.PHONY: tags
+.PHONY: tags critic
 
 tags:
 	ctags -f tags --recurse --totals \
@@ -41,6 +41,10 @@ tags:
 		--exclude=.svn --exclude='*~' \
 		--languages=Perl --langmap=Perl:+.t \
 		lib/ t/
+
+critic:
+	perlcritic -profile perlcriticrc -1 -quiet .
+
 MAKE_FRAG
 }
 
