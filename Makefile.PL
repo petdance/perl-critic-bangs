@@ -1,3 +1,4 @@
+#!perl
 use strict;
 use warnings;
 use ExtUtils::MakeMaker;
@@ -43,7 +44,7 @@ tags:
 		lib/ t/
 
 critic:
-	perlcritic -profile perlcriticrc -1 -quiet .
+	perlcritic -profile perlcriticrc -1 -quiet lib/ t/ Makefile.PL
 
 MAKE_FRAG
 }
