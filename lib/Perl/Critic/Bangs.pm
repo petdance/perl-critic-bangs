@@ -108,11 +108,18 @@ L<http://perl-critic-bangs.googlecode.com/svn/>
 =head1 ACKNOWLEDGEMENTS
 
 Thanks to
-Andy Moore for helping me get this off the ground.
+
+=over 4
+
+=item * Andy Moore for helping me get this off the ground.
+
+=item * Oystein Torget for bug reports and patches.
+
+=back
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2006 Andy Lester, all rights reserved.
+Copyright 2006, 2007 Andy Lester, all rights reserved.
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

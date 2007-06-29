@@ -17,7 +17,7 @@ sub new {
 
     # Set commentedcode regex from configuration, if defined.
     if ( defined $config{commentedcoderegex} ) {
-        $self->{_commentedcoderegex} = $config{commentedcoderegex};
+        $self->{_commentedcoderegex} = qr/$config{commentedcoderegex}/;
     }
 
     return $self;
@@ -65,12 +65,12 @@ By default, this policy attempts to look for commented out code. It
 does that by looking for variable assignments in code as represented
 by the regular expression: qr/\$[A-Za-z_].*=/ found in a comment. To
 change that regex, pass one into the constructor as a key-value pair,
-where the key is 'coderegex' and the value is a qr() constructed
+where the key is 'commentedcoderegex' and the value is a qr() constructed
 regex. Or specify them in your F<.perlcriticrc> file
 like this:
 
   [Bangs::ProhibitCommentedOutCode]
-  coderegex = qr(\$[A-Za-z_].*=/)
+  commentedcoderegex = \$[A-Za-z_].*=/
 
 =head1 AUTHOR
 
