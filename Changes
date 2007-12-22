@@ -4,6 +4,7 @@ NEXT
         [ENHANCEMENTS]
         Added utf8 to the list of exceptions in ProhibitNumberedNames.
         The exceptions are also now case-insensitive.
+        Added ProhibitUselessRegexModifiers.pm policy
 
 
 0.22    Sun Jul 16 22:09:10 CDT 2006

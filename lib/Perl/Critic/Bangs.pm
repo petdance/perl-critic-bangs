@@ -45,6 +45,11 @@ Variables like C<$user> and C<$user2> are insufficiently distinguished.
 Determining the class in a constructor by using C<ref($proto) || $proto> is usually
 a cut-n-paste that is incorrect.
 
+=head2 ProhibitUselessRegexModifiers policy
+
+Adding modifiers to a regular expression made up entirely of a
+variable created with qr() is usually not doing what you expect.
+
 =head2 ProhibitVagueNames
 
 Vague variables like C<$data> or C<$info> are not descriptive enough.

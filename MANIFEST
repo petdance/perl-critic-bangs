@@ -9,6 +9,7 @@ lib/Perl/Critic/Policy/Bangs/ProhibitFlagComments.pm
 lib/Perl/Critic/Policy/Bangs/ProhibitNoPlan.pm
 lib/Perl/Critic/Policy/Bangs/ProhibitNumberedNames.pm
 lib/Perl/Critic/Policy/Bangs/ProhibitRefProtoOrProto.pm
+lib/Perl/Critic/Policy/Bangs/ProhibitUselessRegexModifiers.pm
 lib/Perl/Critic/Policy/Bangs/ProhibitVagueNames.pm
 
 t/tlib/PerlCriticTestUtils.pm
@@ -20,4 +21,5 @@ t/no_plan.t
 t/numbered.t
 t/pod.t
 t/refproto.t
+t/uselessregexmodifiers.t
 t/vague.t
