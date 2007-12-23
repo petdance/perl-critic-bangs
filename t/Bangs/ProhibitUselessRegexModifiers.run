@@ -40,11 +40,30 @@ if ( $string =~ /foo$regex/m ) {
 
 ## name Do not warn if the qr() is modified in the same way
 ## failures 0
-## TODO not handled yet
 ## cut
 
 my $regex = qr(asdf)m;
 if ( $string =~ /$regex/m ) {
+}
+
+#-----------------------------------------------------------------------------
+
+## name 's' modifier should fail
+## failures 1
+## cut
+
+my $regex = qr(asdf);
+if ( $string =~ /$regex/s ) {
+}
+
+#-----------------------------------------------------------------------------
+
+## name 'x' modifier should not trigger warning
+## failures 0
+## cut
+
+my $regex = qr(asdf);
+if ( $string =~ /$regex/x ) {
 }
 
 #-----------------------------------------------------------------------------

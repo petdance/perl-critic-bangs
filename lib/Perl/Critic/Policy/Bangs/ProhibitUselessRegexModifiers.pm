@@ -29,31 +29,37 @@ sub violates {
     my ( $self, $elem, undef ) = @_;
 
 
-    # we throw a violation if both of two conditions are true:
+    # we throw a violation if all these conditions are true:
     # 1) there's an 'm' modifier
     # 2) the *only* thing in the regex is a compiled regex from a previous qr().
+    # 3) the modifiers are not the same in both places
     my %mods = get_modifiers($elem);
-    if ( $mods{'m'} ) {
+    if ( $mods{'m'} || $mods{'s'} ) {
         my $match = get_match_string( $elem );
         if ( $match =~ /^\$\w+$/smx ) {  # It looks like a single variable in there
-	  if ( _is_previously_assigned_quote_like_operator( $elem, $match ) ) {
-            return $self->violation( $DESC, $EXPL, $elem );
-	  }
+            if ( my $qr = _previously_assigned_quote_like_operator( $elem, $match ) ) {
+                # don't violate if both regexes are modified in the same way
+                if ( _sorted_modifiers( $elem ) ne _sorted_modifiers( $qr ) ) {
+                    return $self->violation( $DESC, $EXPL, $elem );
+                }
+            }
         }
     }
     return; #ok!;
 }
 
-sub _is_previously_assigned_quote_like_operator {
+sub _previously_assigned_quote_like_operator {
   my ( $elem, $match ) = @_;
 
   my $qlop = _find_previous_quote_like_regexp( $elem ) or return;
 
   # find if this previous quote-like-regexp assigned to the variable in $match
   my $parent = $qlop->parent();
-  my $found = $parent->find_any( sub { $_[1]->isa( 'PPI::Token::Symbol' ) and
-					 $_[1]->content eq $match } );
-  return $found;
+  if ( $parent->find_any( sub { $_[1]->isa( 'PPI::Token::Symbol' ) and
+                                  $_[1]->content eq $match } ) ) {
+      return $qlop;
+  }
+  return;
 }
 
 
@@ -66,6 +72,13 @@ sub _find_previous_quote_like_regexp {
       $qlop = $qlop->previous_token() or return;
     }
     return $qlop;
+}
+
+sub _sorted_modifiers {
+    my $elem = shift;
+
+    my %mods = get_modifiers( $elem );
+    return join( '', sort keys %mods );
 }
 
 1;
