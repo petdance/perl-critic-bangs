@@ -1,14 +1,14 @@
+package Perl::Critic::Policy::Bangs::ProhibitUselessRegexModifiers;
+
 use strict;
 use warnings;
 use Readonly;
-
-package Perl::Critic::Policy::Bangs::ProhibitUselessRegexModifiers;
 
 use Perl::Critic::Utils qw{ :severities :classification :ppi };
 use Perl::Critic::Utils::PPIRegexp qw{ &get_modifiers &get_match_string };
 use base 'Perl::Critic::Policy';
 
-our $VERSION = '0.01';
+our $VERSION = '0.23';
 
 Readonly::Scalar my $DESC => q{Prohibits adding "m" modifier to compiled regular expressions where it does nothing};
 Readonly::Scalar my $EXPL => q{There is a bug in 5.8.x in that /$re/sm would incorrectly apply the
@@ -68,6 +68,7 @@ sub _find_previous_quote_like_regexp {
     return $qlop;
 }
 
+1;
 
 =pod
 
@@ -98,7 +99,7 @@ And see:
 http://rt.perl.org/rt3//Public/Bug/Display.html?id=22354
 for a descirption of the bug and subsequent fix.
 
-=head1 AUTHOR                                                                                                                                                                                      
+=head1 AUTHOR
 
 Andrew Moore <amoore@mooresystems.com>
 

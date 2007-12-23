@@ -1,0 +1,37 @@
+## name basic failure
+## failures 1
+## cut
+
+my $regex = qr(asdf);
+if ( $string =~ /$regex/m ) {
+}
+
+#-----------------------------------------------------------------------------
+
+## name basic failure
+## failures 0
+## cut
+
+my $regex = qr(asdf);
+if ( $string =~ /$regex/ ) {
+}
+
+#-----------------------------------------------------------------------------
+
+## name basic failure
+## failures 0
+## cut
+
+my $regex = 'asdf';
+if ( $string =~ /$regex/m ) {
+}
+
+#-----------------------------------------------------------------------------
+
+## name basic failure
+## failures 0
+## cut
+
+my $regex = qr(asdf);
+if ( $string =~ /foo$regex/m ) {
+}

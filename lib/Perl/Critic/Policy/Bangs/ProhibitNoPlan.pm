@@ -6,6 +6,9 @@ use Perl::Critic::Utils;
 use Perl::Critic::Violation;
 use base 'Perl::Critic::Policy';
 
+our $VERSION = '0.23';
+
+sub supported_parameters { return ()                   }
 sub default_severity { return $SEVERITY_HIGHEST }
 sub applies_to { return 'PPI::Token::QuoteLike::Words' }
 

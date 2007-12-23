@@ -1,0 +1,17 @@
+## name Acceptable Comments
+## failures 0
+## cut
+
+my $foo = '#XXX';
+# this comment is OK
+my $XXX = 'foo';
+
+#-----------------------------------------------------------------------------
+
+## name XXX Comments
+## failures 1
+## cut
+
+# XXX I need to fix this comment
+
+#-----------------------------------------------------------------------------

@@ -1,10 +1,14 @@
 Revision history for Perl-Critic-Bangs
 
 NEXT
+        [FIXES]
+        fixed bug in ProhibitCommentedOutCode which prevented custom configuration from working
+
         [ENHANCEMENTS]
         Added utf8 to the list of exceptions in ProhibitNumberedNames.
         The exceptions are also now case-insensitive.
         Added ProhibitUselessRegexModifiers.pm policy
+        switched to testing method that Perl::Critic uses
 
 
 0.22    Sun Jul 16 22:09:10 CDT 2006
