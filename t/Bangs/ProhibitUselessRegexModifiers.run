@@ -8,7 +8,7 @@ if ( $string =~ /$regex/m ) {
 
 #-----------------------------------------------------------------------------
 
-## name basic failure
+## name no modifier
 ## failures 0
 ## cut
 
@@ -18,7 +18,7 @@ if ( $string =~ /$regex/ ) {
 
 #-----------------------------------------------------------------------------
 
-## name basic failure
+## name regex is just a string
 ## failures 0
 ## cut
 
@@ -28,10 +28,23 @@ if ( $string =~ /$regex/m ) {
 
 #-----------------------------------------------------------------------------
 
-## name basic failure
+## name regex is not simply a qr() expression
 ## failures 0
 ## cut
 
 my $regex = qr(asdf);
 if ( $string =~ /foo$regex/m ) {
 }
+
+#-----------------------------------------------------------------------------
+
+## name Do not warn if the qr() is modified in the same way
+## failures 0
+## TODO not handled yet
+## cut
+
+my $regex = qr(asdf)m;
+if ( $string =~ /$regex/m ) {
+}
+
+#-----------------------------------------------------------------------------
