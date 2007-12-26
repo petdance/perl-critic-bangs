@@ -9,3 +9,6 @@ ours in Bangs.pm, we should copy and modify their test script.
 Perl::Critic distribution. We should come up with a common way to
 indicate this to help us keep them updated when they change the
 originals.
+
+* Is it really necessary to make top-level symlinks to all of our
+policies now?

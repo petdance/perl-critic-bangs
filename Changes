@@ -1,6 +1,6 @@
 Revision history for Perl-Critic-Bangs
 
-NEXT
+0.23
         [FIXES]
         fixed bug in ProhibitCommentedOutCode which prevented custom configuration from working
 
