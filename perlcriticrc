@@ -1,3 +1,5 @@
+# For Perl::Critic::Bangs' own "make critic" target
+
 [-CodeLayout::ProhibitParensWithBuiltins]
 [CodeLayout::ProhibitHardTabs]
 allow_leading_tabs = 0
