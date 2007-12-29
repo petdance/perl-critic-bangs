@@ -1,12 +1,5 @@
 #!perl
 
-##############################################################################
-#      $URL: http://perlcritic.tigris.org/svn/perlcritic/trunk/Perl-Critic/t/14_policy_parameters.t $
-#     $Date: 2007-09-02 20:07:03 -0500 (Sun, 02 Sep 2007) $
-#   $Author: clonezone $
-# $Revision: 1854 $
-##############################################################################
-
 use strict;
 use warnings;
 use Test::More; #plan set below!
@@ -60,6 +53,8 @@ sub test_supported_parameters {
         my $label = qq{Created policy "$policy" with param "$param_name"};
         is( $EVAL_ERROR, q{}, $label );
     }
+
+    return;
 }
 
 #-----------------------------------------------------------------------------
@@ -71,7 +66,7 @@ sub test_invalid_parameters {
     my $factory = Perl::Critic::PolicyFactory->new( -profile => $profile );
     eval { $factory->create_policy(-name => $policy, -params => $bogus_params) };
     my $label = qq{Created $policy with bogus parameters};
-    like( $EVAL_ERROR, qr/Parameter "bogus" isn't supported/, $label);
+    return like( $EVAL_ERROR, qr/Parameter "bogus" isn't supported/, $label);
 }
 
 #-----------------------------------------------------------------------------
@@ -81,8 +76,8 @@ sub test_has_declared_parameters {
     if ( not $policy->can('supported_parameters') ) {
         fail( qq{I don't know if $policy supports params} );
         diag( qq{This means $policy needs a supported_parameters() method} );
-        return;
     }
+    return;
 }
 
 #-----------------------------------------------------------------------------

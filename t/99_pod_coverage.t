@@ -1,12 +1,5 @@
 #!perl
 
-##############################################################################
-#     $URL: http://perlcritic.tigris.org/svn/perlcritic/trunk/Perl-Critic/t/99_pod_coverage.t $
-#    $Date: 2007-10-21 07:13:08 -0500 (Sun, 21 Oct 2007) $
-#   $Author: clonezone $
-# $Revision: 1995 $
-##############################################################################
-
 use strict;
 use warnings;
 use Test::More;

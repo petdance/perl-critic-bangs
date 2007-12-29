@@ -1,12 +1,5 @@
 #!perl
 
-##############################################################################
-#      $URL: http://perlcritic.tigris.org/svn/perlcritic/trunk/Perl-Critic/t/40_criticize.t $
-#     $Date: 2007-09-02 20:07:03 -0500 (Sun, 02 Sep 2007) $
-#   $Author: clonezone $
-# $Revision: 1854 $
-##############################################################################
-
 # Self-compliance tests
 
 use strict;

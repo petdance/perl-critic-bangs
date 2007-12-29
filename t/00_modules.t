@@ -1,12 +1,5 @@
 #!perl
 
-##############################################################################
-#      $URL: http://perlcritic.tigris.org/svn/perlcritic/trunk/Perl-Critic/t/00_modules.t $
-#     $Date: 2007-12-20 10:00:02 -0600 (Thu, 20 Dec 2007) $
-#   $Author: clonezone $
-# $Revision: 2062 $
-##############################################################################
-
 use strict;
 use warnings;
 use PPI::Document;
