@@ -1,7 +1,6 @@
 Bangs.pm
 Changes
 CommentedOutCode.pm
-examples/perlcriticrc
 FlagComments.pm
 lib/Perl/Critic/Bangs.pm
 lib/Perl/Critic/Policy/Bangs/ProhibitCommentedOutCode.pm
@@ -15,8 +14,12 @@ Makefile.PL
 MANIFEST
 NoPlan.pm
 NumberedNames.pm
+perlcriticrc
 README
 RefProto.pm
+TODO
+VagueNames.pm
+
 t/00_modules.t
 t/13_bundled_policies.t
 t/14_policy_parameters.t
@@ -28,6 +31,7 @@ t/94_includes.t
 t/95_kwalitee.t
 t/98_pod_syntax.t
 t/99_pod_coverage.t
+
 t/Bangs/ProhibitCommentedOutCode.run
 t/Bangs/ProhibitFlagComments.run
 t/Bangs/ProhibitNoPlan.run
@@ -39,6 +43,3 @@ t/tlib/Perl/Critic/Policy/Test.pm
 t/tlib/Perl/Critic/TestUtilitiesWithMinimalDependencies.pm
 t/tlib/ViolationTest.pm
 t/tlib/ViolationTest2.pm
-tags
-TODO
-VagueNames.pm
