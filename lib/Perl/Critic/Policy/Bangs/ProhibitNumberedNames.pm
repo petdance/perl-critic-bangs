@@ -3,7 +3,6 @@ package Perl::Critic::Policy::Bangs::ProhibitNumberedNames;
 use strict;
 use warnings;
 use Perl::Critic::Utils;
-use Perl::Critic::Violation;
 use base 'Perl::Critic::Policy';
 
 our $VERSION = '0.23';
@@ -66,26 +65,6 @@ like this:
 
 =cut
 
-sub new {
-    my $class = shift;
-    my %config = @_;
-
-    my $self = bless {}, $class;
-    $self->{_exceptions} = [ @DEFAULT_EXCEPTIONS ];
-
-    # Set list of exceptions from configuration, if defined.
-    if ( defined $config{exceptions} ) {
-        $self->{_exceptions} = [ split m{ \s+ }mx, $config{exceptions} ];
-
-    # Add to list of exceptions
-    } elsif ( defined $config{add_exceptions} ) {
-        push( @{$self->{_exceptions}}, split m{ \s+ }mx, $config{add_exceptions} );
-    }
-
-    return $self;
-}
-
-
 sub violates {
     my ( $self, $elem, $doc ) = @_;
 
@@ -102,10 +81,9 @@ sub violates {
             return if $exception eq $basename;
         }
 
-        my $sev = $self->get_severity();
         my $desc = qq(Variable named "$canonical");
         my $expl = 'Variable names should not be differentiated only by digits';
-        return Perl::Critic::Violation->new( $desc, $expl, $elem, $sev );
+        return $self->new( $desc, $expl, $elem );
     }
     return;
 }
@@ -118,7 +96,7 @@ Andy Lester C<< <andy at petdance.com> >>
 
 =head1 COPYRIGHT
 
-Copyright (c) 2006 Andy Lester.  All rights reserved.
+Copyright (c) 2006-2008 Andy Lester.  All rights reserved.
 
 This program is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.  The full text of this license

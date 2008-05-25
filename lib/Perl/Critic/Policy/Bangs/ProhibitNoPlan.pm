@@ -3,40 +3,31 @@ package Perl::Critic::Policy::Bangs::ProhibitNoPlan;
 use strict;
 use warnings;
 use Perl::Critic::Utils;
-use Perl::Critic::Violation;
 use base 'Perl::Critic::Policy';
 
 our $VERSION = '0.23';
 
-sub supported_parameters { return ()                   }
-sub default_severity { return $SEVERITY_HIGHEST }
-sub applies_to { return 'PPI::Token::QuoteLike::Words' }
-
-#---------------------------------------------------------------------------
-
-sub new {
-    my ($class, %config) = @_;
-    my $self = bless {}, $class;
-    $self->{_noplanregex} = qr/\bno_plan\b/;
-
-    return $self;
-}
+sub supported_parameters { return ()                             }
+sub default_severity     { return $SEVERITY_LOW                  }
+sub default_themes       { return qw( bangs tests )              }
+sub applies_to           { return 'PPI::Token::QuoteLike::Words' }
 
 #---------------------------------------------------------------------------
 
 sub violates {
     my ( $self, $elem, $doc ) = @_;
 
-    if ( $elem =~ $self->{'_noplanregex'} ) {
 
+    if ( $elem =~ qr/\bno_plan\b/ ) {
         # Make sure that the previous sibling was Test::More, or return
         my $sib = $elem->sprevious_sibling() || return;
         $sib->isa('PPI::Token::Word') && $sib eq 'Test::More' || return;
 
         my $desc = q(Test::More with "no_plan" found);
         my $expl = q(Test::More should be given a plan indicating the number of tests run);
-        return Perl::Critic::Violation->new( $desc, $expl, $elem, $self->get_severity );
+        return $self->violation( $desc, $expl, $elem );
     }
+
     return;
 }
 
@@ -50,7 +41,11 @@ __END__
 
 =head1 NAME
 
-Perl::Critic::Policy::Bangs::ProhibitNoPlan
+Perl::Critic::Policy::Bangs::ProhibitNoPlan - Know what you're going to test.
+
+=head1 AFFILIATION
+
+This Policy is part of the L<Perl::Critic::Bangs> distribution.
 
 =head1 DESCRIPTION
 
@@ -58,10 +53,9 @@ Test::More should be given a plan indicting the number of tests to be
 run. This policy searches for instances of Test::More called with
 "no_plan".
 
-=head1 CONSTRUCTOR
+=head1 CONFIGURATION
 
-This policy looks for qw(no_plan). That can't be changed from the
-constructor.
+This Policy is not configurable except for the standard options.
 
 =head1 AUTHOR
 

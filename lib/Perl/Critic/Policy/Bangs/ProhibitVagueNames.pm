@@ -2,28 +2,40 @@ package Perl::Critic::Policy::Bangs::ProhibitVagueNames;
 
 use strict;
 use warnings;
-use Perl::Critic::Utils;
-use Perl::Critic::Violation;
+use Perl::Critic::Utils qw( :booleans :severities );
 use base 'Perl::Critic::Policy';
 
 our $VERSION = '0.23';
 
-sub supported_parameters { return qw ( names add_names ) }
-sub default_severity { return $SEVERITY_MEDIUM }
-sub applies_to { return 'PPI::Token::Symbol' }
-our @DEFAULT_VAGUE_NAMES = qw(
-    data
-    info
-    var
-    obj
-    object
-    tmp
-    temp
-);
+#----------------------------------------------------------------------------
+
+sub supported_parameters {
+    return (
+        {
+            name           => 'names',
+            description    => 'Words to prohibit as variable names.',
+            behavior       => 'string list',
+            default_string => 'data info var obj object tmp temp',
+        },
+        {
+            name           => 'add_names',
+            description    => 'Additional words to prohibit as variable names.',
+            behavior       => 'string list',
+        },
+    );
+}
+
+sub default_severity     { return $SEVERITY_MEDIUM        }
+sub default_themes       { return qw( bangs readability ) }
+sub applies_to           { return 'PPI::Token::Symbol'    }
 
 =head1 NAME
 
-Perl::Critic::Policy::Bangs::ProhibitVagueNames - Prohibit vague variable names
+Perl::Critic::Policy::Bangs::ProhibitVagueNames - Don't use generic variable names.
+
+=head1 AFFILIATION
+
+This Policy is part of the L<Perl::Critic::Bangs> distribution.
 
 =head1 DESCRIPTION
 
@@ -34,48 +46,47 @@ C<$info> are completely vague.
    my $userinfo = shift   # OK
 
 See
-http://www.oreillynet.com/onlamp/blog/2004/03/the_worlds_two_worst_variable.html
+L<http://www.oreillynet.com/onlamp/blog/2004/03/the_worlds_two_worst_variable.html>
 for more of my ranting on this.
 
-=head1 CONSTRUCTOR
+=head1 CONFIGURATION
 
-To replace the list of vague names, pass them into the constructor
-as a key-value pair where the key is "names" and the value is a
-whitespace delimited series of names. Or specify them in your
-F<.perlcriticrc> file like this:
+This policy has two options: C<names> and C<add_names>.
+
+=head1 CONFIGURATION
+
+This policy has two options: C<names> and C<add_names>.
+
+=head2 C<names>
+
+To replace the list of vague names, specify them as a whitespace
+delimited set of prohibited names.
 
     [Bangs::ProhibitVagueNames]
     names = data count line next
 
-To add names to the list, pass them into the constructor as
-"add_names", or specify them in your F<.perlcriticrc> file like
-this:
+=head2 C<add_names>
+
+To add to the list of vague names, specify them as a whitespace
+delimited set of prohibited names.
 
     [Bangs::ProhibitVagueNames]
     add_names = foo bar bat
 
 =cut
 
-sub new {
-    my $class = shift;
-    my %config = @_;
+sub initialize_if_enabled {
+    my ( $self, $config ) = @_;
 
-    my $self = bless {}, $class;
+    $self->{_names} = { %{ $self->{_names} }, %{ $self->{_add_names} } };
 
-    # Set list of vague names from configuration, if defined.
-    $self->{_names} =
-        defined $config{names}
-            ? [ split m{ \s+ }mx, $config{names} ]
-            : [ @DEFAULT_VAGUE_NAMES ];
-
-    # Add to list of vague names
-    if ( defined $config{add_names} ) {
-        push( @{$self->{_names}}, split m{ \s+ }mx, $config{add_names} );
-    }
-
-    return $self;
+    return $TRUE;
 }
 
+=head2 C<names>
+
+To replace the list of vague names, specify them as a whitespace
+delimited set of prohibited names.
 
 sub violates {
     my ( $self, $elem, $doc ) = @_;
@@ -86,12 +97,11 @@ sub violates {
     $basename =~ s/.*:://;
     $basename =~ s/^[\$@%]//;
 
-    foreach my $naughty ( @{$self->{'_names'}} ) {
+    foreach my $naughty ( keys %{ $self->{'_names'} } ) {
         if ( $basename eq $naughty ) {
-            my $sev = $self->get_severity();
             my $desc = qq(Variable named "$canonical");
             my $expl = 'Variable names should be specific, not vague';
-            return Perl::Critic::Violation->new( $desc, $expl, $elem, $sev );
+            return $self->violation( $desc, $expl, $elem );
         }
     }
     return;
@@ -101,7 +111,7 @@ sub violates {
 
 =head1 AUTHOR
 
-Andy Lester C<< <andy at petdance.com> >> from code by 
+Andy Lester C<< <andy at petdance.com> >> from code by
 Andrew Moore C<< <amoore at mooresystems.com> >>.
 
 =head1 ACKNOWLEDGEMENTS
