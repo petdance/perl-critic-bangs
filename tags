@@ -50,7 +50,7 @@ get_skip_all_tests_tap	t/tlib/Perl/Critic/TestUtilitiesWithMinimalDependencies.p
 get_trusted_methods	t/99_pod_coverage.t	/^sub get_trusted_methods {$/;"	s
 get_violation	t/tlib/ViolationTest.pm	/^sub get_violation {$/;"	s
 get_violation	t/tlib/ViolationTest2.pm	/^sub get_violation {$/;"	s
-http	lib/Perl/Critic/Policy/Bangs/ProhibitUselessRegexModifiers.pm	/^http:\/\/perlbuzz.com\/mechanix\/2007\/12\/code-broken-by-regex-fixes-in.html};$/;"	l
+http	lib/Perl/Critic/Policy/Bangs/ProhibitUselessRegexModifiers.pm	/^http:\/\/perlbuzz.com\/mechanix\/2007\/12\/code-broken-by-regex-fixes-in.html$/;"	l
 initialize_if_enabled	lib/Perl/Critic/Policy/Bangs/ProhibitNumberedNames.pm	/^sub initialize_if_enabled {$/;"	s
 initialize_if_enabled	lib/Perl/Critic/Policy/Bangs/ProhibitVagueNames.pm	/^sub initialize_if_enabled {$/;"	s
 match	t/94_includes.t	/^sub match {$/;"	s

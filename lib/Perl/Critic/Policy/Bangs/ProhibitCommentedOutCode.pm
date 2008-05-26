@@ -15,7 +15,7 @@ sub supported_parameters {
             name           => 'commentedcoderegex',
             description    => 'Regular expression to use to look for code in comments.',
             behavior       => 'string',
-            default_string => '\$[A-Za-z_].*=',
+            default_string => '\$[A-Za-z_].*=', ## no critic
         },
     );
 }

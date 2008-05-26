@@ -11,12 +11,14 @@ use base 'Perl::Critic::Policy';
 our $VERSION = '0.23';
 
 Readonly::Scalar my $DESC => q{Prohibits adding "m" modifier to compiled regular expressions where it does nothing};
-Readonly::Scalar my $EXPL => q{There is a bug in 5.8.x in that /$re/sm would incorrectly apply the
+Readonly::Scalar my $EXPL => <<'EOF';
+There is a bug in 5.8.x in that /$re/sm would incorrectly apply the
 /sm modifiers to a regular expression. This makes the code work, but
 for the wrong reason. In 5.10.0, this bug is "fixed" so that the
 modifier no longer works, but no warning is emitted to tell you that
 the modifiers are ignored.
-http://perlbuzz.com/mechanix/2007/12/code-broken-by-regex-fixes-in.html};
+http://perlbuzz.com/mechanix/2007/12/code-broken-by-regex-fixes-in.html
+EOF
 
 
 sub supported_parameters { return ()                   }
