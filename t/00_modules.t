@@ -9,9 +9,7 @@ use English qw(-no_match_vars);
 
 #-----------------------------------------------------------------------------
 
-# adapted from similar file in Perl::Critic distribution
-# revision 2062
-our $VERSION = '0.23';
+our $VERSION = '1.00';
 
 #-----------------------------------------------------------------------------
 
