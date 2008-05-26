@@ -29,6 +29,8 @@ sub default_severity     { return $SEVERITY_MEDIUM        }
 sub default_themes       { return qw( bangs readability ) }
 sub applies_to           { return 'PPI::Token::Symbol'    }
 
+=for stopwords whitespace
+
 =head1 NAME
 
 Perl::Critic::Policy::Bangs::ProhibitVagueNames - Don't use generic variable names.
@@ -48,10 +50,6 @@ C<$info> are completely vague.
 See
 L<http://www.oreillynet.com/onlamp/blog/2004/03/the_worlds_two_worst_variable.html>
 for more of my ranting on this.
-
-=head1 CONFIGURATION
-
-This policy has two options: C<names> and C<add_names>.
 
 =head1 CONFIGURATION
 
@@ -83,10 +81,6 @@ sub initialize_if_enabled {
     return $TRUE;
 }
 
-=head2 C<names>
-
-To replace the list of vague names, specify them as a whitespace
-delimited set of prohibited names.
 
 sub violates {
     my ( $self, $elem, $doc ) = @_;
@@ -114,7 +108,7 @@ sub violates {
 Andy Lester C<< <andy at petdance.com> >> from code by
 Andrew Moore C<< <amoore at mooresystems.com> >>.
 
-=head1 ACKNOWLEDGEMENTS
+=head1 ACKNOWLEDGMENTS
 
 Adapted from policies by Jeffrey Ryan Thalhammer <thaljef@cpan.org>,
 Based on App::Fluff by Andy Lester, "<andy at petdance.com>"

@@ -103,7 +103,7 @@ This Policy is not configurable except for the standard options.
 
 Andrew Moore <amoore@mooresystems.com>
 
-=head1 ACKNOWLEDGEMENTS
+=head1 ACKNOWLEDGMENTS
 
 Adapted from policies by Jeffrey Ryan Thalhammer <thaljef@cpan.org>,
 and work done by Andrew Moore <amoore@mooresystems.com>.

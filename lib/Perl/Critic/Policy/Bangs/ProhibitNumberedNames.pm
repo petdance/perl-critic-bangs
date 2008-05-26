@@ -7,19 +7,33 @@ use base 'Perl::Critic::Policy';
 
 our $VERSION = '0.23';
 
-sub supported_parameters { return ( qw( exceptions ) ) }
-sub default_severity { return $SEVERITY_MEDIUM }
-sub applies_to { return 'PPI::Token::Symbol' }
+sub supported_parameters {
+    return (
+        {
+            name           => 'exceptions',
+            description    => 'Things to allow in variable names.',
+            behavior       => 'string list',
+            default_string => 'md5 x11 utf8',
+        },
+        {
+            name           => 'add_exceptions',
+            description    => 'Additional things to allow in variable names.',
+            behavior       => 'string list',
+        },
+    );
+}
 
-our @DEFAULT_EXCEPTIONS = qw(
-    md5
-    x11
-    utf8
-);
+sub default_severity { return $SEVERITY_MEDIUM        }
+sub default_themes   { return qw( bangs maintenance ) }
+sub applies_to       { return 'PPI::Token::Symbol'    }
 
 =head1 NAME
 
-Perl::Critic::Policy::Bangs::ProhibitNumberedNames - Prohibit variables differentiated by trailing numbers
+Perl::Critic::Policy::Bangs::ProhibitNumberedNames - Prohibit variables differentiated by trailing numbers.
+
+=head1 AFFILIATION
+
+This Policy is part of the L<Perl::Critic::Bangs> distribution.
 
 =head1 DESCRIPTION
 
@@ -38,32 +52,44 @@ by the silly "3" at the end.  Instead, it should be:
     my $grand_total = $subtotal + $shipping;
 
 See
-http://www.oreillynet.com/onlamp/blog/2004/03/the_worlds_two_worst_variable.html
+L<http://www.oreillynet.com/onlamp/blog/2004/03/the_worlds_two_worst_variable.html>
 for more of my ranting on this.
 
-=head1 CONSTRUCTOR
+=head1 CONFIGURATION
+
+This policy has two options: C<exceptions> and C<add_exceptions>.
+
+=head2 C<exceptions>
 
 This policy starts with a list of numbered names that are legitimate
 to have ending with a number:
 
     md5, x11, utf8
 
-To replace the list of exceptions, pass them into the constructor
-as a key-value pair where the key is "exceptions" and the value is
-a whitespace delimited series of names. Or specify them in your
-F<.perlcriticrc> file like this:
+To replace the list of exceptions, specify a value for the
+C<exceptions> option.
 
     [Bangs::ProhibitNumberedNames]
     exceptions = logan7 babylon5
 
-To add exceptions to the list, pass them into the constructor as
-"add_exceptions", or specify them in your F<.perlcriticrc> file
-like this:
+=head2 C<add_exceptions>
+
+To add exceptions to the list, give a value for C<add_exceptions> in
+your F<.perlcriticrc> file like this:
 
     [Bangs::ProhibitVagueNames]
     add_names = adam12 route66
 
 =cut
+
+sub initialize_if_enabled {
+    my ( $self, $config ) = @_;
+
+    $self->{_exceptions} =
+        { %{ $self->{_exceptions} }, %{ $self->{_add_exceptions} } };
+
+    return $TRUE;
+}
 
 sub violates {
     my ( $self, $elem, $doc ) = @_;
@@ -77,13 +103,11 @@ sub violates {
     if ( $basename =~ /\D+\d+$/ ) {
         $basename =~ s/.+_(.+)/$1/; # handle things like "partial_md5"
         $basename = lc $basename;
-        for my $exception ( @{$self->{_exceptions}} ) {
-            return if $exception eq $basename;
-        }
+        return if $self->{_exceptions}{$basename};
 
         my $desc = qq(Variable named "$canonical");
         my $expl = 'Variable names should not be differentiated only by digits';
-        return $self->new( $desc, $expl, $elem );
+        return $self->violation( $desc, $expl, $elem );
     }
     return;
 }

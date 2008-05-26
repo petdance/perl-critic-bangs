@@ -48,6 +48,8 @@ __END__
 
 =pod
 
+=for stopwords regex
+
 =head1 NAME
 
 Perl::Critic::Policy::Bangs::ProhibitCommentedOutCode - Commented-out code is usually noise. It should be removed.
@@ -77,7 +79,7 @@ that regex by specifying a value for C<coderegex>.
 
 Andrew Moore <amoore@mooresystems.com>
 
-=head1 ACKNOWLEDGEMENTS
+=head1 ACKNOWLEDGMENTS
 
 Adapted from policies by Jeffrey Ryan Thalhammer <thaljef@cpan.org>,
 Based on App::Fluff by Andy Lester, "<andy at petdance.com>"

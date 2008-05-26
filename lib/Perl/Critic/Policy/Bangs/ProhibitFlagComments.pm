@@ -48,6 +48,8 @@ __END__
 
 =pod
 
+=for stopwords FIXME
+
 =head1 NAME
 
 Perl::Critic::Policy::Bangs::ProhibitFlagComments - Don't use XXX, TODO, or FIXME.
@@ -75,7 +77,7 @@ in your F<.perlcriticrc> file like this:
 
 Andrew Moore <amoore@mooresystems.com>
 
-=head1 ACKNOWLEDGEMENTS
+=head1 ACKNOWLEDGMENTS
 
 Adapted from policies by Jeffrey Ryan Thalhammer <thaljef@cpan.org>,
 Based on App::Fluff by Andy Lester, "<andy at petdance.com>"

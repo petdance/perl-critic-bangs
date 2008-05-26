@@ -87,7 +87,11 @@ sub _sorted_modifiers {
 
 =head1 NAME
 
-Perl::Critic::Policy::Bangs::ProhibitUselessRegexModifiers
+Perl::Critic::Policy::Bangs::ProhibitUselessRegexModifiers - Adding modifiers to a regular expression made up entirely of a variable created with qr() is usually not doing what you expect.
+
+=head1 AFFILIATION
+
+This Policy is part of the L<Perl::Critic::Bangs> distribution.
 
 =head1 DESCRIPTION
 
@@ -105,18 +109,22 @@ Not what you want::
   if ( $string =~ /$regex/m ) {}; ## this triggers a violation of this policy.
 
 See the thread that starts at:
-http://www.nntp.perl.org/group/perl.perl5.porters/2007/12/msg131709.html
+L<http://www.nntp.perl.org/group/perl.perl5.porters/2007/12/msg131709.html>
 for a description of how this problem can bite the users.
 
 And see:
-http://rt.perl.org/rt3//Public/Bug/Display.html?id=22354
-for a descirption of the bug and subsequent fix.
+L<http://rt.perl.org/rt3//Public/Bug/Display.html?id=22354>
+for a description of the bug and subsequent fix.
+
+=head1 CONFIGURATION
+
+This Policy is not configurable except for the standard options.
 
 =head1 AUTHOR
 
 Andrew Moore <amoore@mooresystems.com>
 
-=head1 ACKNOWLEDGEMENTS
+=head1 ACKNOWLEDGMENTS
 
 Adapted from policies by Jeffrey Ryan Thalhammer <thaljef at cpan.org>,
 Thanks to Andy Lester, "<andy at petdance.com>" for pointing out this common problem.

@@ -3,6 +3,8 @@ package Perl::Critic::Bangs;
 use warnings;
 use strict;
 
+=for stopwords Siskel Kael Greil Considine perldoc AnnoCPAN CPAN's Oystein Torget
+
 =head1 NAME
 
 Perl::Critic::Bangs - A collection of handy Perl::Critic policies
@@ -24,33 +26,33 @@ will help make your code better.
 
 The rules included with the Perl::Critic::Bangs group include:
 
-=head2 ProhibitCommentedOutCode
+=head2 L<Perl::Critic::Policy::Bangs::ProhibitCommentedOutCode>
 
 Commented-out code is usually noise.  It should be removed.
 
-=head2 ProhibitFlagComments
+=head2 L<Perl::Critic::Policy::Bangs::ProhibitFlagComments>
 
 Watch for comments like "XXX", "TODO", etc.
 
-=head2 ProhibitNoPlan
+=head2 L<Perl::Critic::Policy::Bangs::ProhibitNoPlan>
 
 Tests should have a plan.
 
-=head2 ProhibitNumberedNames
+=head2 L<Perl::Critic::Policy::Bangs::ProhibitNumberedNames>
 
 Variables like C<$user> and C<$user2> are insufficiently distinguished.
 
-=head2 ProhibitRefProtoOrProto
+=head2 L<Perl::Critic::Policy::Bangs::ProhibitRefProtoOrProto>
 
 Determining the class in a constructor by using C<ref($proto) || $proto> is usually
 a cut-n-paste that is incorrect.
 
-=head2 ProhibitUselessRegexModifiers policy
+=head2 L<Perl::Critic::Policy::Bangs::ProhibitUselessRegexModifiers>
 
 Adding modifiers to a regular expression made up entirely of a
 variable created with qr() is usually not doing what you expect.
 
-=head2 ProhibitVagueNames
+=head2 L<Perl::Critic::Policy::Bangs::ProhibitVagueNames>
 
 Vague variables like C<$data> or C<$info> are not descriptive enough.
 
@@ -110,7 +112,7 @@ L<http://perl-critic-bangs.googlecode.com/svn/>
 
 =back
 
-=head1 ACKNOWLEDGEMENTS
+=head1 ACKNOWLEDGMENTS
 
 Thanks to
 
@@ -122,7 +124,7 @@ Thanks to
 
 =back
 
-=head1 COPYRIGHT & LICENSE
+=head1 COPYRIGHT
 
 Copyright 2006, 2007 Andy Lester, all rights reserved.
 

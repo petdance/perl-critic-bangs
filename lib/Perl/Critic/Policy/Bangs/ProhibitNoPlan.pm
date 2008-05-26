@@ -61,7 +61,7 @@ This Policy is not configurable except for the standard options.
 
 Andrew Moore <amoore@mooresystems.com>
 
-=head1 ACKNOWLEDGEMENTS
+=head1 ACKNOWLEDGMENTS
 
 Adapted from policies by Jeffrey Ryan Thalhammer <thaljef@cpan.org>,
 Based on App::Fluff by Andy Lester, "<andy at petdance.com>"
