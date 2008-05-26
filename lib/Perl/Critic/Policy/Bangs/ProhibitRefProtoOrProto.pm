@@ -5,7 +5,7 @@ use warnings;
 use Perl::Critic::Utils;
 use base 'Perl::Critic::Policy';
 
-our $VERSION = '0.23';
+our $VERSION = '1.00';
 
 sub supported_parameters { return ()                     }
 sub default_severity     { return $SEVERITY_HIGH         }
@@ -110,9 +110,8 @@ and work done by Andrew Moore <amoore@mooresystems.com>.
 
 =head1 COPYRIGHT
 
-Copyright 2006 Andy Lester C<< <andy at petdance.com> >>.
-
-reserved.
+Copyright 2006-2008 Andy Lester C<< <andy at petdance.com> >>.  All
+rights reserved.
 
 This program is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.  The full text of this license

@@ -1,22 +1,28 @@
 Revision history for Perl-Critic-Bangs
 
-0.23
-        [FIXES]
-        fixed bug in ProhibitCommentedOutCode which prevented custom configuration from working
+1.00    Mon May 26 00:58:48 CDT 2008
 
-        [ENHANCEMENTS]
-        Added utf8 to the list of exceptions in ProhibitNumberedNames.
-        The exceptions are also now case-insensitive.
-        Added ProhibitUselessRegexModifiers.pm policy
-        switched to testing method that Perl::Critic uses
+    Updated to work with modern Perl::Critic 1.084.  Thanks to
+    Elliot Shank for making that happen.
+
+    [FIXES]
+    Fixed bug in ProhibitCommentedOutCode which prevented custom
+    configuration from working.
+
+    [ENHANCEMENTS]
+    Added utf8 to the list of exceptions in ProhibitNumberedNames.
+    The exceptions are also now case-insensitive.
+
+    Added ProhibitUselessRegexModifiers.pm policy switched to testing
+    method that Perl::Critic uses.
 
 
 0.22    Sun Jul 16 22:09:10 CDT 2006
-        [FIXES]
-        $1 no longer runs afoul of ProhibitNumberedNames
+    [FIXES]
+    $1 no longer runs afoul of ProhibitNumberedNames
 
 
 0.20    Fri Jul 14 22:36:09 CDT 2006
-        First real working version that you'd want to install.
+    First real working version that you'd want to install.
 
 

@@ -5,7 +5,7 @@ use warnings;
 use Perl::Critic::Utils;
 use base 'Perl::Critic::Policy';
 
-our $VERSION = '0.23';
+our $VERSION = '1.00';
 
 #----------------------------------------------------------------------------
 
@@ -84,8 +84,8 @@ Based on App::Fluff by Andy Lester, "<andy at petdance.com>"
 
 =head1 COPYRIGHT
 
-Copyright (c) 2006 Andrew Moore <amoore@mooresystems.com>.  All rights
-reserved.
+Copyright (c) 2006-2008 Andy Lester <andy@petdance.com> and Andrew
+Moore <amoore@mooresystems.com>.  All rights reserved.
 
 This program is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.  The full text of this license
