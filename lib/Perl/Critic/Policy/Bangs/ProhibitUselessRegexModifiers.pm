@@ -51,17 +51,17 @@ sub violates {
 }
 
 sub _previously_assigned_quote_like_operator {
-  my ( $elem, $match ) = @_;
+    my ( $elem, $match ) = @_;
 
-  my $qlop = _find_previous_quote_like_regexp( $elem ) or return;
+    my $qlop = _find_previous_quote_like_regexp( $elem ) or return;
 
-  # find if this previous quote-like-regexp assigned to the variable in $match
-  my $parent = $qlop->parent();
-  if ( $parent->find_any( sub { $_[1]->isa( 'PPI::Token::Symbol' ) and
-                                  $_[1]->content eq $match } ) ) {
-      return $qlop;
-  }
-  return;
+    # find if this previous quote-like-regexp assigned to the variable in $match
+    my $parent = $qlop->parent();
+    if ( $parent->find_any( sub { $_[1]->isa( 'PPI::Token::Symbol' ) and
+                $_[1]->content eq $match } ) ) {
+        return $qlop;
+    }
+    return;
 }
 
 
@@ -70,8 +70,8 @@ sub _find_previous_quote_like_regexp {
 
     my $qlop = $elem;
     while ( ! $qlop->isa( 'PPI::Token::QuoteLike::Regexp' ) ) {
-      # we use previous_token instead of sprevious_sibling to get into previous statements.
-      $qlop = $qlop->previous_token() or return;
+        # we use previous_token instead of sprevious_sibling to get into previous statements.
+        $qlop = $qlop->previous_token() or return;
     }
     return $qlop;
 }
