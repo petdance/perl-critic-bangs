@@ -8,15 +8,6 @@ use lib 't/tlib';
 use File::Find;
 use Test::More;
 
-use Perl::Critic::TestUtilitiesWithMinimalDependencies qw{
-should_skip_author_tests
-get_author_test_skip_message
-};
-
-if (should_skip_author_tests()) {
-    plan skip_all => get_author_test_skip_message();
-}
-
 plan 'no_plan';
 
 my $last_version = undef;
@@ -44,9 +35,8 @@ sub check_version {
     # Special cases for printing/documenting version numbers
     @version_lines = grep {! m/(?:\\|\"|\'|C<|v)\$VERSION/xms} @version_lines;
     @version_lines = grep {! m/^\s*\#/xms} @version_lines;
-    if (@version_lines == 0) {
-        fail($_);
-    }
+
+    is( scalar @version_lines, 0, 'Got at least one version' );
     for my $line (@version_lines) {
         if (!defined $last_version) {
             $last_version = shift @version_lines;
