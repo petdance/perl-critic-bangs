@@ -28,7 +28,6 @@ t/40_criticize.t
 t/40_perlcriticrc
 t/93_version.t
 t/94_includes.t
-t/95_kwalitee.t
 t/98_pod_syntax.t
 t/99_pod_coverage.t
 
