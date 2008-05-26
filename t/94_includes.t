@@ -11,8 +11,8 @@ use File::Find;
 use PPI::Document;
 
 use Perl::Critic::TestUtilitiesWithMinimalDependencies qw{
-    should_skip_author_tests
-    get_author_test_skip_message
+should_skip_author_tests
+get_author_test_skip_message
 };
 
 if (should_skip_author_tests()) {
@@ -40,48 +40,45 @@ find(
 plan tests => scalar @pm;
 
 for my $file (@pm) {
-    SKIP:
-    {
-        my $doc = PPI::Document->new($file) || die 'Failed to parse '.$file;
+    my $doc = PPI::Document->new($file) || die 'Failed to parse '.$file;
 
-        my @incs = @{$doc->find('PPI::Statement::Include') || []};
-        my %deps = map {$_->module => 1} grep {$_->type eq 'use' || $_->type eq 'require'} @incs;
-        my %thispkg = map {$_->namespace => 1} @{$doc->find('PPI::Statement::Package') || []};
-        my @pkgs = @{$doc->find('PPI::Token::Word')};
-        my %failed;
+    my @incs = @{$doc->find('PPI::Statement::Include') || []};
+    my %deps = map {$_->module => 1} grep {$_->type eq 'use' || $_->type eq 'require'} @incs;
+    my %thispkg = map {$_->namespace => 1} @{$doc->find('PPI::Statement::Package') || []};
+    my @pkgs = @{$doc->find('PPI::Token::Word')};
+    my %failed;
 
-        for my $pkg (@pkgs) {
-            my $name = "$pkg";
-            next if $name !~ m/::/xms;
-            next if $name =~ m/::_private::/xms;
-            next if $name =~ m/List::Util::[a-z]+/xms;
+    for my $pkg (@pkgs) {
+        my $name = "$pkg";
+        next if $name !~ m/::/xms;
+        next if $name =~ m/::_private::/xms;
+        next if $name =~ m/List::Util::[a-z]+/xms;
 
-            # subroutine declaration with absolute name?
-            # (bad form, but legal)
-            my $prev_sib = $pkg->sprevious_sibling;
-            next if ($prev_sib &&
-                     $prev_sib eq 'sub' &&
-                     !$prev_sib->sprevious_sibling &&
-                     $pkg->parent->isa('PPI::Statement::Sub'));
+        # subroutine declaration with absolute name?
+        # (bad form, but legal)
+        my $prev_sib = $pkg->sprevious_sibling;
+        next if ($prev_sib &&
+            $prev_sib eq 'sub' &&
+            !$prev_sib->sprevious_sibling &&
+            $pkg->parent->isa('PPI::Statement::Sub'));
 
-            my $token = $pkg->next_sibling;
+        my $token = $pkg->next_sibling;
 
-            if ($token =~ m/\A \(/xms) {
-                $name =~ s/::\w+\z//xms;
-            }
-
-            if ( !match($name, \%deps, \%thispkg) ) {
-                $failed{$name} = 1;
-            }
+        if ($token =~ m/\A \(/xms) {
+            $name =~ s/::\w+\z//xms;
         }
 
-        my @failures = sort keys %failed;
-        if (@failures) {
-            diag("found deps @{[sort keys %deps]}");
-            diag("Missed @failures");
+        if ( !match($name, \%deps, \%thispkg) ) {
+            $failed{$name} = 1;
         }
-        ok(@failures == 0, $file);
     }
+
+    my @failures = sort keys %failed;
+    if (@failures) {
+        diag("found deps @{[sort keys %deps]}");
+        diag("Missed @failures");
+    }
+    is( scalar @failures, 0, $file );
 }
 
 sub match {

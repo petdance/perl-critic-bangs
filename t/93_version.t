@@ -36,7 +36,7 @@ sub check_version {
     @version_lines = grep {! m/(?:\\|\"|\'|C<|v)\$VERSION/xms} @version_lines;
     @version_lines = grep {! m/^\s*\#/xms} @version_lines;
 
-    is( scalar @version_lines, 0, 'Got at least one version' );
+    ok( scalar @version_lines, 'Got at least one version line' );
     for my $line (@version_lines) {
         if (!defined $last_version) {
             $last_version = shift @version_lines;

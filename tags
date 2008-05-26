@@ -15,7 +15,6 @@ Perl::Critic::Policy::Bangs::ProhibitUselessRegexModifiers	lib/Perl/Critic/Polic
 Perl::Critic::Policy::Bangs::ProhibitVagueNames	lib/Perl/Critic/Policy/Bangs/ProhibitVagueNames.pm	/^package Perl::Critic::Policy::Bangs::ProhibitVagueNames;$/;"	p
 Perl::Critic::Policy::Test	t/tlib/Perl/Critic/Policy/Test.pm	/^package Perl::Critic::Policy::Test;$/;"	p
 Perl::Critic::TestUtilitiesWithMinimalDependencies	t/tlib/Perl/Critic/TestUtilitiesWithMinimalDependencies.pm	/^package Perl::Critic::TestUtilitiesWithMinimalDependencies;$/;"	p
-SKIP	t/94_includes.t	/^    SKIP:$/;"	l
 ViolationTest	t/tlib/ViolationTest.pm	/^package ViolationTest;$/;"	p
 ViolationTest2	t/tlib/ViolationTest2.pm	/^package ViolationTest2;$/;"	p
 _find_previous_quote_like_regexp	lib/Perl/Critic/Policy/Bangs/ProhibitUselessRegexModifiers.pm	/^sub _find_previous_quote_like_regexp {$/;"	s
