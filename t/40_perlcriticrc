@@ -14,18 +14,19 @@ verbose = %f: %m at line %l, column %c.  %e.  (Severity: %s, %p)\n
 
 [-CodeLayout::RequireTidyCode]
 
-[Documentation::RequirePodSections]
-lib_sections    = NAME|DESCRIPTION|AUTHOR|COPYRIGHT
-script_sections = NAME|DESCRIPTION|AUTHOR|COPYRIGHT
-
-[Miscellanea::RequireRcsKeywords]
-keywords = URL Date Author Revision
-
 [CodeLayout::ProhibitHardTabs]
 allow_leading_tabs = 0
 
 [Documentation::PodSpelling]
 stop_words = autoflushes BBEdit CGI CPAN CVS Dolan exponentials filename Guzis HEREDOC HEREDOCs IDE Maxia Mehner multi-line namespace namespaces PBP perl perlcritic perlcriticrc PolicyListing postfix programmatically PPI Readonly refactor refactoring runtime sigil sigils SQL STDERR STDIN STDOUT subdirectories TerMarsch Thalhammer TODO UI unblessed vice-versa
+
+[-Documentation::RequirePodAtEnd]
+
+[Documentation::RequirePodSections]
+lib_sections    = NAME|DESCRIPTION|AUTHOR|COPYRIGHT
+script_sections = NAME|DESCRIPTION|AUTHOR|COPYRIGHT
+
+[-Miscellanea::RequireRcsKeywords]
 
 [InputOutput::RequireCheckedSyscalls]
 functions = open close
@@ -35,3 +36,6 @@ allow_all_brackets = 1
 
 [RegularExpressions::RequireBracesForMultiline]
 allow_all_brackets = 1
+
+[-RegularExpressions::RequireExtendedFormatting]
+[-RegularExpressions::RequireLineBoundaryMatching]
