@@ -1,6 +1,6 @@
 Revision history for Perl-Critic-Bangs
 
-1.00    Mon May 26 01:05:33 CDT 2008
+1.00    Mon May 26 19:10:40 CDT 2008
 
     Updated to work with modern Perl::Critic 1.084.  Thanks to
     Elliot Shank for making that happen.
