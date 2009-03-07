@@ -5,7 +5,7 @@ use warnings;
 use Perl::Critic::Utils;
 use base 'Perl::Critic::Policy';
 
-our $VERSION = '1.00';
+our $VERSION = '1.02';
 
 sub supported_parameters { return ()                             }
 sub default_severity     { return $SEVERITY_LOW                  }
