@@ -1,7 +1,3 @@
-Bangs.pm
-Changes
-CommentedOutCode.pm
-FlagComments.pm
 lib/Perl/Critic/Bangs.pm
 lib/Perl/Critic/Policy/Bangs/ProhibitCommentedOutCode.pm
 lib/Perl/Critic/Policy/Bangs/ProhibitFlagComments.pm
@@ -10,15 +6,13 @@ lib/Perl/Critic/Policy/Bangs/ProhibitNumberedNames.pm
 lib/Perl/Critic/Policy/Bangs/ProhibitRefProtoOrProto.pm
 lib/Perl/Critic/Policy/Bangs/ProhibitUselessRegexModifiers.pm
 lib/Perl/Critic/Policy/Bangs/ProhibitVagueNames.pm
+
+Changes
 Makefile.PL
 MANIFEST
-NoPlan.pm
-NumberedNames.pm
 perlcriticrc
 README
-RefProto.pm
 TODO
-VagueNames.pm
 
 t/00_modules.t
 t/13_bundled_policies.t
