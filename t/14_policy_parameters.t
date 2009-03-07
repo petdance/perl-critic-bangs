@@ -11,7 +11,7 @@ use Perl::Critic::PolicyParameter qw{ $NO_DESCRIPTION_AVAILABLE };
 use Perl::Critic::Utils qw( policy_short_name );
 use Perl::Critic::TestUtils qw(bundled_policy_names);
 
-use Test::More; #plan set below!
+use Test::More tests => 12;
 
 Perl::Critic::TestUtils::block_perlcriticrc();
 
@@ -27,16 +27,10 @@ Perl::Critic::TestUtils::block_perlcriticrc();
 #-----------------------------------------------------------------------------
 
 # Figure out how many tests there will be...
-my @all_policies = bundled_policy_names();
-my @all_params   = map { $_->supported_parameters() } @all_policies;
-my $ntests       = @all_policies + 2 * @all_params;
-plan( tests => $ntests );
-
-#-----------------------------------------------------------------------------
+my @all_policies = sort ( bundled_policy_names() );
 
 for my $policy ( @all_policies ) {
     test_has_declared_parameters( $policy );
-    test_invalid_parameters( $policy );
     test_supported_parameters( $policy );
 }
 
@@ -73,25 +67,6 @@ sub test_supported_parameters {
     }
 
     return;
-}
-
-#-----------------------------------------------------------------------------
-
-sub test_invalid_parameters {
-    my $policy = shift;
-    my $bogus_params  = { bogus => 'shizzle' };
-    my $profile = Perl::Critic::UserProfile->new( -profile => 'NONE' );
-    my $factory = Perl::Critic::PolicyFactory->new( -profile => $profile );
-
-    my $policy_name = policy_short_name($policy);
-    my $label = qq{Created $policy_name with bogus parameters};
-
-    eval { $factory->create_policy(-name => $policy, -params => $bogus_params) };
-    like(
-        $EVAL_ERROR,
-        qr/The $policy_name policy doesn't take a "bogus" option/,
-        $label
-    );
 }
 
 #-----------------------------------------------------------------------------

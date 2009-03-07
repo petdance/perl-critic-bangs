@@ -62,7 +62,6 @@ supported_parameters	lib/Perl/Critic/Policy/Bangs/ProhibitRefProtoOrProto.pm	/^s
 supported_parameters	lib/Perl/Critic/Policy/Bangs/ProhibitUselessRegexModifiers.pm	/^sub supported_parameters { return ()                   }$/;"	s
 supported_parameters	lib/Perl/Critic/Policy/Bangs/ProhibitVagueNames.pm	/^sub supported_parameters {$/;"	s
 test_has_declared_parameters	t/14_policy_parameters.t	/^sub test_has_declared_parameters {$/;"	s
-test_invalid_parameters	t/14_policy_parameters.t	/^sub test_invalid_parameters {$/;"	s
 test_supported_parameters	t/14_policy_parameters.t	/^sub test_supported_parameters {$/;"	s
 violates	lib/Perl/Critic/Policy/Bangs/ProhibitCommentedOutCode.pm	/^sub violates {$/;"	s
 violates	lib/Perl/Critic/Policy/Bangs/ProhibitFlagComments.pm	/^sub violates {$/;"	s
