@@ -124,17 +124,22 @@ Thanks to
 
 =back
 
-=head1 COPYRIGHT
+=head1 COPYRIGHT & LICENSE
 
-Copyright (C) 2006-2009 Andy Lester
+Copyright 2006-2009 Andy Lester.
 
-This library is free software; you can redistribute it and/or modify
-it under the terms of either the GNU Public License v3, or the Artistic
-License 2.0.
+This program is free software; you can redistribute it and/or modify
+it under the terms of either:
 
-    * http://www.gnu.org/copyleft/gpl.html
+=over 4
 
-    * http://www.opensource.org/licenses/artistic-license-2.0.php
+=item * the GNU General Public License as published by the Free
+Software Foundation; either version 1, or (at your option) any later
+version, or
+
+=item * the Artistic License version 2.0.
+
+=back
 
 =cut
 

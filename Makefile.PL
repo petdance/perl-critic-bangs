@@ -4,7 +4,7 @@ use warnings;
 use ExtUtils::MakeMaker;
 
 
-WriteMakefile(
+my %parms = (
     NAME                => 'Perl::Critic::Bangs',
     AUTHOR              => 'Andy Lester <andy@petdance.com>',
     VERSION_FROM        => 'lib/Perl/Critic/Bangs.pm',
@@ -20,6 +20,17 @@ WriteMakefile(
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean               => { FILES => 'Perl-Critic-Bangs-*' },
 );
+
+if ( $ExtUtils::MakeMaker::VERSION ge '6.46' ) {
+    $parms{META_MERGE} = {
+        resources => {
+            license     => 'http://dev.perl.org/licenses/',
+            repository  => 'git://github.com/petdance/perl-critic-bangs.git',
+        }
+    };
+}
+
+WriteMakefile( %parms );
 
 package MY;
 sub MY::libscan {
@@ -49,4 +60,3 @@ critic:
 
 MAKE_FRAG
 }
-
