@@ -5,7 +5,7 @@ use warnings;
 use Perl::Critic::Utils;
 use base 'Perl::Critic::Policy';
 
-our $VERSION = '1.02';
+our $VERSION = '1.04';
 
 sub supported_parameters { return ()                     }
 sub default_severity     { return $SEVERITY_HIGH         }
@@ -22,7 +22,7 @@ sub violates {
     return if is_subroutine_name($elem);
 
     my $suspectproto = $elem->snext_sibling();
-    if ( $suspectproto->isa( 'PPI::Token::Symbol' ) ) {
+    if ( $suspectproto && $suspectproto->isa( 'PPI::Token::Symbol' ) ) {
         # $suspectproto is the thing I'm calling ref on. Let's see if there's a || after that.
         if ( $suspectproto->snext_sibling()
                 && $suspectproto->snext_sibling->isa( 'PPI::Token::Operator' )

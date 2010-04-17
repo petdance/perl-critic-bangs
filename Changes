@@ -1,9 +1,11 @@
 Revision history for Perl-Critic-Bangs
 
 
-NEXT
+1.04    Sat Apr 17 11:13:42 CDT 2010
 ====================================
-Updated versions.
+[FIXED]
+Fixed a problem with dereferencing a node in ProhibitRefProtoOrProto.
+Thanks to Mike Hind.
 
 
 1.02    Sat Mar  7 14:40:38 CST 2009

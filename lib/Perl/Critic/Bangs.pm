@@ -11,11 +11,11 @@ Perl::Critic::Bangs - A collection of handy Perl::Critic policies
 
 =head1 VERSION
 
-Version 1.02
+Version 1.04
 
 =cut
 
-our $VERSION = '1.02';
+our $VERSION = '1.04';
 
 =head1 SYNOPSIS
 
@@ -56,7 +56,7 @@ variable created with qr() is usually not doing what you expect.
 
 Vague variables like C<$data> or C<$info> are not descriptive enough.
 
-=head1 WHY BANGS?
+=head1 WHY IS IT CALLED Perl::Critic::Bangs?
 
 I didn't want to call it "Perl::Critic::Lester" or "Perl::Critic::Petdance"
 that would make it sound like they were only my rules.  Other people
@@ -106,9 +106,9 @@ L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Perl-Critic-Bangs>
 
 L<http://search.cpan.org/dist/Perl-Critic-Bangs>
 
-=item * Subversion repository
+=item * Source code repository
 
-L<http://perl-critic-bangs.googlecode.com/svn/>
+L<http://github.com/petdance/perl-critic-bangs>
 
 =back
 
