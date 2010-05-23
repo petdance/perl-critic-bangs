@@ -86,7 +86,7 @@ Based on App::Fluff by Andy Lester, "<andy at petdance.com>"
 
 =head1 COPYRIGHT
 
-Copyright (C) 2006-2009 Andy Lester and Andrew Moore
+Copyright (C) 2006-2010 Andy Lester and Andrew Moore
 
 This library is free software; you can redistribute it and/or modify
 it under the terms of either the GNU Public License v3, or the Artistic
