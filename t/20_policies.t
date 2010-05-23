@@ -41,7 +41,7 @@ my $nsubtests = 0;
 for my $s (values %{$subtests}) {
     $nsubtests += @{$s}; # one [pf]critique() test per subtest
 }
-my $npolicies = scalar keys %$subtests; # one can() test per policy
+my $npolicies = scalar keys %{$subtests}; # one can() test per policy
 
 plan tests => $nsubtests + $npolicies;
 
