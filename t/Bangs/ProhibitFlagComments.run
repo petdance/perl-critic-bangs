@@ -15,3 +15,23 @@ my $XXX = 'foo';
 # XXX I need to fix this comment
 
 #-----------------------------------------------------------------------------
+
+## name Flags in POD
+## failures 1
+## cut
+
+=head1 SYNOPSIS
+
+FIXME: needs a description
+
+=over 4
+
+=item one
+
+TODO
+
+=back
+
+=cut
+
+#-----------------------------------------------------------------------------

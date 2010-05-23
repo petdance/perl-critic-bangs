@@ -20,9 +20,9 @@ sub supported_parameters {
     );
 }
 
-sub default_severity     { return $SEVERITY_LOW           }
-sub default_themes       { return qw( bangs maintenance ) }
-sub applies_to           { return 'PPI::Token::Comment'   }
+sub default_severity     { return $SEVERITY_LOW                             }
+sub default_themes       { return qw( bangs maintenance )                   }
+sub applies_to           { return qw( PPI::Token::Comment PPI::Token::Pod ) }
 
 
 #---------------------------------------------------------------------------
