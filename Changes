@@ -1,6 +1,6 @@
 Revision history for Perl-Critic-Bangs
 
-NEXT
+1.06    Sun May 23 00:56:49 CDT 2010
 ====================================
 [ENHANCEMENTS]
 ProhibitFlagComments now checks POD for XXXes and the like, not just

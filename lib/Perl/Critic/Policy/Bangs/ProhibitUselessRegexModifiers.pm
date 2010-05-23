@@ -8,7 +8,7 @@ use Perl::Critic::Utils qw{ :severities :classification :ppi };
 use Perl::Critic::Utils::PPIRegexp qw{ &get_modifiers &get_match_string };
 use base 'Perl::Critic::Policy';
 
-our $VERSION = '1.04';
+our $VERSION = '1.06';
 
 Readonly::Scalar my $DESC => q{Prohibits adding "m" modifier to compiled regular expressions where it does nothing};
 Readonly::Scalar my $EXPL => <<'EOF';

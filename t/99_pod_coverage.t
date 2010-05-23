@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use Test::More;
 
-eval 'use Test::Pod::Coverage 1.04'; ## no critic
+eval 'use Test::Pod::Coverage 1.06'; ## no critic
 plan skip_all => 'Test::Pod::Coverage 1.00 requried to test POD' if $@;
 
 {
