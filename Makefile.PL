@@ -11,9 +11,10 @@ my %parms = (
     ABSTRACT            => 'Perl::Critic::Bangs - A collection of policies for Perl::Critic',
     PL_FILES            => {},
     PREREQ_PM => {
-        'Perl::Critic'       => 1.098,
-        'Test::Perl::Critic' => 1.01,
-        'Test::More'         => 0,
+        'Perl::Critic'             => 1.098,
+        'Perl::Critic::Deprecated' => 0,
+        'Test::Perl::Critic'       => 1.01,
+        'Test::More'               => 0,
     },
     LICENSE             => 'perl',
 
