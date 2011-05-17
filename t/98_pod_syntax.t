@@ -5,7 +5,7 @@ use warnings;
 use Test::More;
 use Perl::Critic::TestUtils qw{ starting_points_including_examples };
 
-if ( not eval 'use Test::Pod 1.00' ) {  ## no critic (ProhibitStringyEval)
+if ( not eval 'use Test::Pod 1.00; 1;' ) {  ## no critic (ProhibitStringyEval)
     plan skip_all => 'Test::Pod 1.00 required for testing POD';
 }
 all_pod_files_ok( all_pod_files( starting_points_including_examples() ) );

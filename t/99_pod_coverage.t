@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use Test::More;
 
-if ( not eval 'use Test::Pod::Coverage 1.06' ) { ## no critic (ProhibitStringyEval)
+if ( not eval 'use Test::Pod::Coverage 1.06; 1;' ) { ## no critic (ProhibitStringyEval)
     plan skip_all => 'Test::Pod::Coverage 1.00 requried to test POD';
 }
 
