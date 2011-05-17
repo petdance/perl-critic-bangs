@@ -1,5 +1,13 @@
 Revision history for Perl-Critic-Bangs
 
+1.07_01
+====================================
+[FIXES]
+Remove use of Perl::Critic::Utils::PPIRegexp, which has been removed
+from the Perl-Critic distribution, with calls to native PPI methods. This
+allows P::C::Bangs to install when using perl 5.14.  Thanks, Elliot Shank.
+
+
 1.06    Sun May 23 00:56:49 CDT 2010
 ====================================
 [ENHANCEMENTS]

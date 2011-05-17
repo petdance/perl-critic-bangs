@@ -11,7 +11,7 @@ Perl::Critic::Bangs - A collection of handy Perl::Critic policies
 
 =head1 VERSION
 
-Version 1.06
+Version 1.07_01
 
 =cut
 
@@ -50,7 +50,7 @@ a cut-n-paste that is incorrect.
 =head2 L<Perl::Critic::Policy::Bangs::ProhibitUselessRegexModifiers>
 
 Adding modifiers to a regular expression made up entirely of a
-variable created with qr() is usually not doing what you expect.
+variable created with C<qr()> is usually not doing what you expect.
 
 =head2 L<Perl::Critic::Policy::Bangs::ProhibitVagueNames>
 
@@ -122,11 +122,13 @@ Thanks to
 
 =item * Oystein Torget for bug reports and patches.
 
+=item * Elliot Shank and the rest of the Perl::Critic team for ongoing support.
+
 =back
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2006-2010 Andy Lester.
+Copyright 2006-2011 Andy Lester.
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of either:

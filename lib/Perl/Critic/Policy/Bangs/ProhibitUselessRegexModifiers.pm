@@ -5,7 +5,6 @@ use warnings;
 use Readonly;
 
 use Perl::Critic::Utils qw{ :severities :classification :ppi };
-use Perl::Critic::Utils::PPIRegexp qw{ &get_modifiers &get_match_string };
 use base 'Perl::Critic::Policy';
 
 our $VERSION = '1.06';
@@ -35,9 +34,9 @@ sub violates {
     # 1) there's an 'm' modifier
     # 2) the *only* thing in the regex is a compiled regex from a previous qr().
     # 3) the modifiers are not the same in both places
-    my %mods = get_modifiers($elem);
+    my %mods = $elem->get_modifiers();
     if ( $mods{'m'} || $mods{'s'} ) {
-        my $match = get_match_string( $elem );
+        my $match = $elem->get_match_string();
         if ( $match =~ /^\$\w+$/smx ) {  # It looks like a single variable in there
             if ( my $qr = _previously_assigned_quote_like_operator( $elem, $match ) ) {
                 # don't violate if both regexes are modified in the same way
@@ -79,7 +78,7 @@ sub _find_previous_quote_like_regexp {
 sub _sorted_modifiers {
     my $elem = shift;
 
-    my %mods = get_modifiers( $elem );
+    my %mods = $elem->get_modifiers();
     return join( '', sort keys %mods );
 }
 
