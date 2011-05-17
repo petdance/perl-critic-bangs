@@ -19,7 +19,6 @@ use Perl::Critic::TestUtilitiesWithMinimalDependencies qw{
 };
 
 use Test::More;
-use Test::Perl::Critic;
 
 if (should_skip_author_tests()) {
     plan skip_all => get_author_test_skip_message();
