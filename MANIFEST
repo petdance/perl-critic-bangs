@@ -1,4 +1,5 @@
 lib/Perl/Critic/Bangs.pm
+lib/Perl/Critic/Policy/Bangs/ProhibitBitwiseOperators.pm
 lib/Perl/Critic/Policy/Bangs/ProhibitCommentedOutCode.pm
 lib/Perl/Critic/Policy/Bangs/ProhibitFlagComments.pm
 lib/Perl/Critic/Policy/Bangs/ProhibitNoPlan.pm
@@ -25,6 +26,7 @@ t/94_includes.t
 t/98_pod_syntax.t
 t/99_pod_coverage.t
 
+t/Bangs/ProhibitBitwiseOperators.run
 t/Bangs/ProhibitCommentedOutCode.run
 t/Bangs/ProhibitFlagComments.run
 t/Bangs/ProhibitNoPlan.run

@@ -5,6 +5,12 @@ Revision history for Perl-Critic-Bangs
 As of 1.07_01, Perl::Critic::Bangs is released under Artistic License 2.0,
 rather than dual-licensed with the GPL.
 
+[ENHANCEMENTS]
+Added a new policy, ProhibitBitwiseOperators.  Usually when you see
+a bitwise operator like | or & in a Perl program, it's a mistake that
+should have been || or &&.  It also checks for ^ and ~ as bitwise ops.
+Thanks to Mike O'Regan.
+
 [FIXES]
 Remove use of Perl::Critic::Utils::PPIRegexp, which has been removed
 from the Perl-Critic distribution, with calls to native PPI methods. This
