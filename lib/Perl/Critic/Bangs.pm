@@ -15,7 +15,7 @@ Version 1.07_01
 
 =cut
 
-our $VERSION = '1.06';
+our $VERSION = '1.07_01';
 
 =head1 SYNOPSIS
 
@@ -131,17 +131,7 @@ Thanks to
 Copyright 2006-2011 Andy Lester.
 
 This program is free software; you can redistribute it and/or modify
-it under the terms of either:
-
-=over 4
-
-=item * the GNU General Public License as published by the Free
-Software Foundation; either version 1, or (at your option) any later
-version, or
-
-=item * the Artistic License version 2.0.
-
-=back
+it under the terms of the Artistic License 2.0.
 
 =cut
 

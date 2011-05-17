@@ -5,7 +5,7 @@ use warnings;
 use Perl::Critic::Utils qw( :booleans :severities );
 use base 'Perl::Critic::Policy';
 
-our $VERSION = '1.06';
+our $VERSION = '1.07_01';
 
 #----------------------------------------------------------------------------
 
@@ -115,14 +115,9 @@ Based on App::Fluff by Andy Lester, "<andy at petdance.com>"
 
 =head1 COPYRIGHT
 
-Copyright (c) 2006-2009 Andy Lester
+Copyright (c) 2006-2011 Andy Lester
 
-This library is free software; you can redistribute it and/or modify
-it under the terms of either the GNU Public License v3, or the Artistic
-License 2.0.
-
-    * http://www.gnu.org/copyleft/gpl.html
-
-    * http://www.opensource.org/licenses/artistic-license-2.0.php
+This library is free software; you can redistribute it and/or modify it
+under the terms of the Artistic License 2.0.
 
 =cut

@@ -2,6 +2,9 @@ Revision history for Perl-Critic-Bangs
 
 1.07_01
 ====================================
+As of 1.07_01, Perl::Critic::Bangs is released under Artistic License 2.0,
+rather than dual-licensed with the GPL.
+
 [FIXES]
 Remove use of Perl::Critic::Utils::PPIRegexp, which has been removed
 from the Perl-Critic distribution, with calls to native PPI methods. This

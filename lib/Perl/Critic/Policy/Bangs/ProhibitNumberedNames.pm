@@ -5,7 +5,7 @@ use warnings;
 use Perl::Critic::Utils;
 use base 'Perl::Critic::Policy';
 
-our $VERSION = '1.06';
+our $VERSION = '1.07_01';
 
 sub supported_parameters {
     return (
@@ -37,7 +37,7 @@ This Policy is part of the L<Perl::Critic::Bangs> distribution.
 
 =head1 DESCRIPTION
 
-Similar variables should be obviously different.  A lazy way to
+Similar variables should be meaningfully different.  A lazy way to
 differentiate similar variables is by tacking a number at the end.
 
     my $total = $price * $quantity;
@@ -120,14 +120,9 @@ Andy Lester C<< <andy at petdance.com> >>
 
 =head1 COPYRIGHT
 
-Copyright (c) 2006-2009 Andy Lester
+Copyright (c) 2006-2011 Andy Lester
 
 This library is free software; you can redistribute it and/or modify
-it under the terms of either the GNU Public License v3, or the Artistic
-License 2.0.
-
-    * http://www.gnu.org/copyleft/gpl.html
-
-    * http://www.opensource.org/licenses/artistic-license-2.0.php
+it under the terms of the Artistic License 2.0.
 
 =cut

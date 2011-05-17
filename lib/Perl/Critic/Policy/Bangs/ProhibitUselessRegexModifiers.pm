@@ -7,7 +7,7 @@ use Readonly;
 use Perl::Critic::Utils qw{ :severities :classification :ppi };
 use base 'Perl::Critic::Policy';
 
-our $VERSION = '1.06';
+our $VERSION = '1.07_01';
 
 Readonly::Scalar my $DESC => q{Prohibits adding "m" modifier to compiled regular expressions where it does nothing};
 Readonly::Scalar my $EXPL => <<'EOF';
@@ -101,11 +101,13 @@ incorrectly applied. This was fixed in 5.10, but no warnings were
 emitted to warn the user that they were probably not getting the
 effects they are looking for.
 
-correct:
+Correct:
+
   my $regex = qr(abc)m;
   if ( $string =~ /$regex/ ) {};
 
-Not what you want::
+Not what you want:
+
   my $regex = qr(abc);
   if ( $string =~ /$regex/m ) {}; ## this triggers a violation of this policy.
 
@@ -132,15 +134,10 @@ Thanks to Andy Lester, "<andy at petdance.com>" for pointing out this common pro
 
 =head1 COPYRIGHT
 
-Copyright (c) 2007-2009 Andy Lester <andy@petdance.com> and Andrew
+Copyright (c) 2007-2011 Andy Lester <andy@petdance.com> and Andrew
 Moore <amoore@mooresystems.com>
 
-This library is free software; you can redistribute it and/or modify
-it under the terms of either the GNU Public License v3, or the Artistic
-License 2.0.
-
-    * http://www.gnu.org/copyleft/gpl.html
-
-    * http://www.opensource.org/licenses/artistic-license-2.0.php
+This library is free software; you can redistribute it and/or modify it
+under the terms of the Artistic License 2.0.
 
 =cut
