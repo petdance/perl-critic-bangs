@@ -122,6 +122,8 @@ Thanks to
 
 =item * Oystein Torget for bug reports and patches.
 
+=item * Mike O'Regan for ProhibitBitwiseOperators.
+
 =item * Elliot Shank and the rest of the Perl::Critic team for ongoing support.
 
 =back
