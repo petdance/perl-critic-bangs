@@ -9,6 +9,7 @@ allow_leading_tabs = 0
 
 [-Documentation::RequirePodAtEnd]
 [-Documentation::RequirePodSections]
+[-Documentation::PodSpelling]
 
 [-Miscellanea::RequireRcsKeywords]
 
