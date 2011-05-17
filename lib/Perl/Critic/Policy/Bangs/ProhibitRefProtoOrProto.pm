@@ -31,8 +31,8 @@ sub violates {
             # this is where I test to see if the thing after the || is the same as the thing before the ref
             if ( $or->snext_sibling() eq $suspectproto->content() ) {
                 # here it looks like we have ref $proto || $proto
-                my $desc = q("ref $proto || $proto" construct found); ## no critic
-                my $expl = q(Probably cut-and-pasted example code);
+                my $desc = q{"ref $proto || $proto" construct found}; ## no critic (RequireInterpolationOfMetachars)
+                my $expl = q{Probably cut-and-pasted example code};
                 return $self->violation( $desc, $expl, $elem );
             }
         }
