@@ -55,7 +55,7 @@ __END__
 
 =head1 NAME
 
-Perl::Critic::TestUtilitiesWithMinimalDependencies - Testing functions that only depend upon L<strict>, L<warnings>, and L<Exporter>.
+Perl::Critic::TestUtilitiesWithMinimalDependencies - Testing functions that only depend upon strict, warnings, and Exporter.
 
 =head1 SYNOPSIS
 
@@ -79,9 +79,9 @@ Perl::Critic::TestUtilitiesWithMinimalDependencies - Testing functions that only
 
 =head1 DESCRIPTION
 
-This module is used by L<Perl::Critic> only for self-testing. It
-differs from L<Perl::Critic::TestUtils> in that it only depends upon
-L<strict>, L<warnings>, and L<Exporter>.  This is important for tests
+This module is used by Perl::Critic only for self-testing. It
+differs from Perl::Critic::TestUtils in that it only depends upon
+strict, warnings, and Exporter.  This is important for tests
 that need to hide the presence of other modules before starting.
 
 =head1 IMPORTABLE SUBROUTINES
