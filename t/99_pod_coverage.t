@@ -4,8 +4,9 @@ use strict;
 use warnings;
 use Test::More;
 
-eval 'use Test::Pod::Coverage 1.06'; ## no critic
-plan skip_all => 'Test::Pod::Coverage 1.00 requried to test POD' if $@;
+if ( not eval 'use Test::Pod::Coverage 1.06' ) { ## no critic (ProhibitStringyEval)
+    plan skip_all => 'Test::Pod::Coverage 1.00 requried to test POD';
+}
 
 {
     # HACK: Perl::Critic::Violation uses Pod::Parser to extract the
@@ -23,7 +24,7 @@ plan skip_all => 'Test::Pod::Coverage 1.00 requried to test POD' if $@;
     # parsing.  I'll look for a better solution (or file a bug report)
     # when / if I have better understanding of the problem.
 
-    no warnings;
+    no warnings; ## no critic (ProhibitNoWarnings)
     require Perl::Critic::Violation;
     *Perl::Critic::Violation::import = sub { 1 };
 }
