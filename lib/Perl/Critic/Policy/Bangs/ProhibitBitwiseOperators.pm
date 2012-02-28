@@ -19,7 +19,7 @@ Readonly::Scalar my $EXPL => q{Use of bitwise operator};
 
 sub supported_parameters { return ()                     }
 sub default_severity     { return $SEVERITY_HIGHEST      }
-sub default_themes       { return qw( core bugs )        }
+sub default_themes       { return qw( bangs bugs )        }
 sub applies_to           { return 'PPI::Token::Operator' }
 
 #-----------------------------------------------------------------------------
