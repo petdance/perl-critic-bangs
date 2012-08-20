@@ -24,7 +24,7 @@ if (@ARGV) {
     my @policies = keys %{$subtests}; # get a list of all tests
     # This is inefficient, but who cares...
     for (@ARGV) {
-        next if m/::/xms;
+        next if m/::/;
         if (!s{\A t[\\/](\w+)[\\/](\w+)\.run \z}{$1\::$2}xms) {
             die 'Unknown argument ' . $_;
         }
@@ -97,7 +97,7 @@ for my $policy ( sort keys %{$subtests} ) {
             # If any optional modules are NOT installed, then there should be no failures.
             if ($subtest->{optional_modules}) {
               MODULE:
-                for my $module (split m/,\s*/xms, $subtest->{optional_modules}) {
+                for my $module (split m/,\s*/, $subtest->{optional_modules}) {
                     eval "require $module"; ## no critic (ProhibitStringyEval)
                     if ($EVAL_ERROR) {
                         $expected_failures = 0;

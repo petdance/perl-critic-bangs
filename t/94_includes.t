@@ -32,7 +32,7 @@ my %implied = (
 my @pm;
 find(
     {
-        wanted => sub { push @pm, $_ if m/\.pm \z/xms && !m/svn/xms },
+        wanted => sub { push @pm, $_ if m/\.pm\z/ && !m/svn/ },
         no_chdir => 1,
     },
     'lib'
@@ -50,9 +50,9 @@ for my $file (@pm) {
 
     for my $pkg (@pkgs) {
         my $name = "$pkg";
-        next if $name !~ m/::/xms;
-        next if $name =~ m/::_private::/xms;
-        next if $name =~ m/List::Util::[a-z]+/xms;
+        next if $name !~ m/::/;
+        next if $name =~ m/::_private::/;
+        next if $name =~ m/List::Util::[a-z]+/;
 
         # subroutine declaration with absolute name?
         # (bad form, but legal)

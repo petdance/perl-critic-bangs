@@ -17,7 +17,7 @@ if (! defined $last_version) {
 }
 
 sub check_version {
-    return if (! m{blib/script/}xms && ! m{\.pm \z}xms);
+    return if (! m{blib/script/} && ! m{\.pm\z});
 
     local $/ = undef;
     my $fh;
@@ -29,7 +29,7 @@ sub check_version {
     $content =~ s/^__END__.*//xms;
 
     # only look at perl scripts, not sh scripts
-    return if (m{blib/script/}xms && $content !~ m/\A \#![^\r\n]+?perl/xms);
+    return if (m{blib/script/} && $content !~ m/\A \#![^\r\n]+?perl/xms);
 
     my @version_lines = $content =~ m/ ( [^\n]* \$VERSION [^\n]* ) /gxms;
     # Special cases for printing/documenting version numbers
