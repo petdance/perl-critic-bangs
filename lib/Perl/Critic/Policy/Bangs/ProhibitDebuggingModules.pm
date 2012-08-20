@@ -37,21 +37,6 @@ The current list of detected debugging modules is:
 To add more modules that shouldn't be loaded unless you're actively debugging
 something, add them in F<.perlcriticrc> using the C<deubgging_modules> option.
 
-=head1 AFFILIATION
-
-This policy is part of L<Perl::Critic::Bangs>.
-
-=head1 AUTHOR
-
-Mike Doherty C<doherty@cpan.org>
-
-=head1 COPYRIGHT
-
-Copyright (c) 2012 Mike doherty
-
-This library is free software; you can redistribute it and/or modify
-it under the terms of the Artistic License 2.0.
-
 =cut
 
 Readonly::Scalar my $DESC => q/Debugging module loaded/;
@@ -62,17 +47,38 @@ sub supported_parameters    {
             name            => 'debugging_modules',
             description     => 'Module names which are considered to be banned debugging modules',
             behavior        => 'string list',
-            list_always_present_values => [qw( Data::Dumper Data::Printer )],
+            list_always_present_values => [qw(
+                Data::Dump
+                Data::Dump::Filtered
+                Data::Dump::Streamer
+                Data::Dump::Trace
+
+                Data::Dumper
+                Data::Dumper::Concise
+                Data::Dumper::Concise::Sugar
+                Data::Dumper::EasyOO
+                Data::Dumper::Names
+                Data::Dumper::Simple
+
+                Data::Printer
+                Data::PrettyPrintObjects
+                Data::Skeleton
+                Data::TreeDumper
+
+                DDP
+                DDS
+                Devel::Dwarn
+                ) ], # DDP and DDS are shorthand module names
         }
     );
 }
-sub default_severity        { $SEVERITY_HIGH }
-sub default_themes          { qw/ bangs maintenance / }
-sub applies_to              { 'PPI::Statement::Include' }
+sub default_severity        { return $SEVERITY_HIGH }
+sub default_themes          { return qw/ bangs maintenance / }
+sub applies_to              { return 'PPI::Statement::Include' }
 
 sub violates {
     my ($self, $include, undef) = @_;
-    return unless defined $include->type and $include->type =~ m/use|require/;
+    return unless defined $include->type and ($include->type eq 'use' || $include->type eq 'require');
     my $included = $include->module or return;
     my $EXPL = "You've loaded $included, which probably shouln't be loaded in production";
 
@@ -81,5 +87,22 @@ sub violates {
         if any { $included eq $_ } @banned;
     return;
 }
+
+=head1 AFFILIATION
+
+This policy is part of L<Perl::Critic::Bangs>.
+
+=head1 AUTHOR
+
+Mike Doherty C<doherty@cpan.org>
+
+=head1 COPYRIGHT & LICENSE
+
+Copyright (c) 2012 Mike Doherty
+
+This library is free software; you can redistribute it and/or modify
+it under the terms of the Artistic License 2.0.
+
+=cut
 
 1;
