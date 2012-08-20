@@ -11,7 +11,7 @@ use Perl::Critic::PolicyParameter qw{ $NO_DESCRIPTION_AVAILABLE };
 use Perl::Critic::Utils qw( policy_short_name );
 use Perl::Critic::TestUtils qw(bundled_policy_names);
 
-use Test::More tests => 12;
+use Test::More tests => 14;
 
 Perl::Critic::TestUtils::block_perlcriticrc();
 
