@@ -17,7 +17,7 @@ Perl::Critic::TestUtils::block_perlcriticrc();
 
 my @bundled_policy_names = bundled_policy_names();
 
-plan tests => ( 14 * scalar @bundled_policy_names );
+plan tests => scalar @bundled_policy_names;
 
 # pre-compute for version comparisons
 my $version_string = __PACKAGE__->VERSION;
@@ -25,8 +25,9 @@ my $version_string = __PACKAGE__->VERSION;
 #-----------------------------------------------------------------------------
 # Test module interface for each Policy subclass
 
-{
-    for my $mod ( @bundled_policy_names ) {
+for my $mod ( @bundled_policy_names ) {
+    subtest $mod => sub {
+        plan tests => 14;
 
         use_ok($mod);
         can_ok($mod, 'applies_to');

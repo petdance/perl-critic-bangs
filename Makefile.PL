@@ -22,7 +22,7 @@ my %parms = (
         'PPI::Cache'                    => 0,
         'PPI::Document'                 => 0,
         'Readonly'                      => 0,
-        'Test::More'                    => 0,
+        'Test::More'                    => '0.96', # For subtest()
         'Test::Perl::Critic'            => 1.01,
     },
     LICENSE             => 'perl',
