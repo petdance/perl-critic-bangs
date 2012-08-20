@@ -38,3 +38,4 @@ t/tlib/Perl/Critic/Policy/Test.pm
 t/tlib/Perl/Critic/TestUtilitiesWithMinimalDependencies.pm
 t/tlib/ViolationTest.pm
 t/tlib/ViolationTest2.pm
+META.yml                                 Module meta-data (added by MakeMaker)
