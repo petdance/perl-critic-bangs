@@ -5,7 +5,7 @@ use warnings;
 use Perl::Critic::Utils;
 use base 'Perl::Critic::Policy';
 
-our $VERSION = '1.08';
+our $VERSION = '1.10';
 
 #---------------------------------------------------------------------------
 

@@ -1,5 +1,11 @@
 Revision history for Perl-Critic-Bangs
 
+1.10
+====================================
+[ENHANCEMENTS]
+Added ProhibitDebuggingModules.  Thanks Mike Doherty.
+
+
 1.08    Mon Jun 20 11:56:49 CDT 2011
 ====================================
 Official release, no changes from 1.07_02

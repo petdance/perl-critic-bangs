@@ -7,6 +7,7 @@ lib/Perl/Critic/Policy/Bangs/ProhibitNumberedNames.pm
 lib/Perl/Critic/Policy/Bangs/ProhibitRefProtoOrProto.pm
 lib/Perl/Critic/Policy/Bangs/ProhibitUselessRegexModifiers.pm
 lib/Perl/Critic/Policy/Bangs/ProhibitVagueNames.pm
+lib/Perl/Critic/Policy/Bangs/ProhibitDebuggingModules.pm
 
 Changes
 Makefile.PL
@@ -28,6 +29,7 @@ t/99_pod_coverage.t
 
 t/Bangs/ProhibitBitwiseOperators.run
 t/Bangs/ProhibitCommentedOutCode.run
+t/Bangs/ProhibitDebuggingModules.run
 t/Bangs/ProhibitFlagComments.run
 t/Bangs/ProhibitNoPlan.run
 t/Bangs/ProhibitNumberedNames.run
