@@ -48,6 +48,15 @@ sub supported_parameters    {
             description     => 'Module names which are considered to be banned debugging modules',
             behavior        => 'string list',
             list_always_present_values => [qw(
+                B::Stats
+
+                Carp::Always
+                Carp::Always::Color
+                Carp::Diagnostics
+                Carp::REPL
+                Carp::Source::Always
+                Carp::Trace
+
                 Data::Dump
                 Data::Dump::Filtered
                 Data::Dump::Streamer
@@ -62,12 +71,19 @@ sub supported_parameters    {
 
                 Data::Printer
                 Data::PrettyPrintObjects
+                Data::Show
                 Data::Skeleton
                 Data::TreeDumper
 
                 DDP
                 DDS
+                Devel::Ditto
                 Devel::Dwarn
+                Devel::Modlist
+                Devel::Monitor
+                Devel::StackTrace
+                Devel::Trace
+                Devel::Unplug
                 ) ], # DDP and DDS are shorthand module names
         }
     );
