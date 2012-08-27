@@ -50,8 +50,7 @@ sub supported_parameters    {
             list_always_present_values => [qw(
                 B::Stats
 
-                Carp::Always
-                Carp::Always::Color
+                Carp::Always.*
                 Carp::Diagnostics
                 Carp::REPL
                 Carp::Source::Always
@@ -62,12 +61,7 @@ sub supported_parameters    {
                 Data::Dump::Streamer
                 Data::Dump::Trace
 
-                Data::Dumper
-                Data::Dumper::Concise
-                Data::Dumper::Concise::Sugar
-                Data::Dumper::EasyOO
-                Data::Dumper::Names
-                Data::Dumper::Simple
+                Data::Dumper.*
 
                 Data::Printer
                 Data::PrettyPrintObjects
@@ -100,7 +94,7 @@ sub violates {
 
     my @banned = ( keys %{ $self->{_debugging_modules} } );
     return $self->violation($DESC, $EXPL, $include)
-        if any { $included eq $_ } @banned;
+        if (any { $included =~ m/$_/xms } @banned);
     return;
 }
 
