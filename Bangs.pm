@@ -1,1 +1,0 @@
-lib/Perl/Critic/Bangs.pm

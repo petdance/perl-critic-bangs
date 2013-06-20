@@ -1,1 +1,0 @@
-lib/Perl/Critic/Policy/Bangs/ProhibitUselessRegexModifiers.pm

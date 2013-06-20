@@ -48,26 +48,36 @@ sub supported_parameters    {
             description     => 'Module names which are considered to be banned debugging modules',
             behavior        => 'string list',
             list_always_present_values => [qw(
+                B::Stats
+
+                Carp::Always.*
+                Carp::Diagnostics
+                Carp::REPL
+                Carp::Source::Always
+                Carp::Trace
+
                 Data::Dump
                 Data::Dump::Filtered
                 Data::Dump::Streamer
                 Data::Dump::Trace
 
-                Data::Dumper
-                Data::Dumper::Concise
-                Data::Dumper::Concise::Sugar
-                Data::Dumper::EasyOO
-                Data::Dumper::Names
-                Data::Dumper::Simple
+                Data::Dumper.*
 
                 Data::Printer
                 Data::PrettyPrintObjects
+                Data::Show
                 Data::Skeleton
                 Data::TreeDumper
 
                 DDP
                 DDS
+                Devel::Ditto
                 Devel::Dwarn
+                Devel::Modlist
+                Devel::Monitor
+                Devel::StackTrace
+                Devel::Trace
+                Devel::Unplug
                 ) ], # DDP and DDS are shorthand module names
         }
     );
@@ -84,7 +94,7 @@ sub violates {
 
     my @banned = ( keys %{ $self->{_debugging_modules} } );
     return $self->violation($DESC, $EXPL, $include)
-        if any { $included eq $_ } @banned;
+        if (any { $included =~ m/$_/xms } @banned);
     return;
 }
 
