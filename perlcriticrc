@@ -1,8 +1,8 @@
 # For Perl::Critic::Bangs' own "make critic" target
 
-[-CodeLayout::ProhibitParensWithBuiltins]
 [CodeLayout::ProhibitHardTabs]
 allow_leading_tabs = 0
+[-CodeLayout::ProhibitParensWithBuiltins]
 [-CodeLayout::RequireTidyCode]
 
 [-ControlStructures::ProhibitPostfixControls]
@@ -10,9 +10,14 @@ allow_leading_tabs = 0
 [-Documentation::PodSpelling]
 [-Documentation::RequirePodAtEnd]
 [-Documentation::RequirePodLinksIncludeText]
-[-Documentation::RequirePodSections]
+[Documentation::RequirePodSections]
+lib_sections    = NAME|DESCRIPTION|AUTHOR|COPYRIGHT
+script_sections = NAME|DESCRIPTION|AUTHOR|COPYRIGHT
 
 [-ErrorHandling::RequireCarping]
+
+[InputOutput::RequireCheckedSyscalls]
+functions = open close
 
 [-Miscellanea::RequireRcsKeywords]
 
@@ -21,6 +26,9 @@ allow_leading_tabs = 0
 [-RegularExpressions::RequireExtendedFormatting]
 [-RegularExpressions::RequireLineBoundaryMatching]
 [-RegularExpressions::RequireDotMatchAnything]
+[RegularExpressions::ProhibitUnusualDelimiters]
+
+[RegularExpressions::RequireBracesForMultiline]
 
 [-ValuesAndExpressions::ProhibitConstantPragma]
 [-ValuesAndExpressions::ProhibitEmptyQuotes]

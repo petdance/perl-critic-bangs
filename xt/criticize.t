@@ -13,16 +13,8 @@ use File::Spec qw();
 
 use Perl::Critic::PolicyFactory;
 use Perl::Critic::Utils qw( :characters );
-use Perl::Critic::TestUtilitiesWithMinimalDependencies qw(
-    should_skip_author_tests
-    get_author_test_skip_message
-);
 
 use Test::More;
-
-if (should_skip_author_tests()) {
-    plan skip_all => get_author_test_skip_message();
-}
 
 #-----------------------------------------------------------------------------
 
@@ -48,7 +40,7 @@ if ( $ENV{PERL_CRITIC_CACHE} ) {
 #-----------------------------------------------------------------------------
 # Run critic against all of our own files
 
-my $rcfile = File::Spec->catfile( qw( t 40_perlcriticrc ) );
+my $rcfile = File::Spec->catfile( 'perlcriticrc' );
 Test::Perl::Critic->import( -profile => $rcfile );
 all_critic_ok();
 
