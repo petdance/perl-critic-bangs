@@ -13,7 +13,7 @@ sub supported_parameters {
             name           => 'exceptions',
             description    => 'Things to allow in variable names.',
             behavior       => 'string list',
-            default_string => 'md5 x11 utf8',
+            default_string => 'base64 md5 rc4 sha0 sha1 sha256 utf8 x11 win32',
         },
         {
             name           => 'add_exceptions',
@@ -64,7 +64,7 @@ This policy has two options: C<exceptions> and C<add_exceptions>.
 This policy starts with a list of numbered names that are legitimate
 to have ending with a number:
 
-    md5, x11, utf8
+    base64 md5 rc4 sha0 sha1 sha256 utf8 x11 win32
 
 To replace the list of exceptions, specify a value for the
 C<exceptions> option.
