@@ -105,7 +105,7 @@ sub violates {
         $basename = lc $basename;
         return if $self->{_exceptions}{$basename};
 
-        my $desc = qq(Variable named "$canonical");
+        my $desc = qq{Variable named "$canonical"};
         my $expl = 'Variable names should not be differentiated only by digits';
         return $self->violation( $desc, $expl, $elem );
     }
@@ -120,7 +120,7 @@ Andy Lester C<< <andy at petdance.com> >>
 
 =head1 COPYRIGHT
 
-Copyright (c) 2006-2011 Andy Lester
+Copyright (c) 2006-2013 Andy Lester
 
 This library is free software; you can redistribute it and/or modify
 it under the terms of the Artistic License 2.0.
