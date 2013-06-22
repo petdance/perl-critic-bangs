@@ -66,6 +66,11 @@ to have ending with a number:
 
     base64 md5 rc4 sha0 sha1 sha256 utf8 x11 win32
 
+The exceptions for the policy also apply to variables based on
+the exceptions.  If C<$base64> is acceptable as an exception, so is
+C<$calculated_base64>.  The exception must be separated from the left
+part of the variable by at least one underscore to be recognized.
+
 To replace the list of exceptions, specify a value for the
 C<exceptions> option.
 
