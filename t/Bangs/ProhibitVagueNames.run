@@ -49,3 +49,14 @@ my $data = 'bonzo';
 my $perfectly_valid_name = $data;
 
 #-----------------------------------------------------------------------------
+
+## name Make sure we handle all types of variable declarations and configurations
+## failures 7
+## cut
+
+my ( $data, $info, $temp );
+state ( $obj, $object );
+our @info;
+local %tmp;
+my $lumpy = $data; # Not a problem, becuase it's not ours
+my $barfy = @object; # Not a problem, becuase it's not ours

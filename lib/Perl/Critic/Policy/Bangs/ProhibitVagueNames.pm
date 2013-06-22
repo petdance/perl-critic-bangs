@@ -51,6 +51,8 @@ See
 L<http://www.oreillynet.com/onlamp/blog/2004/03/the_worlds_two_worst_variable.html>
 for more of my ranting on this.
 
+By default, the following names are bad: data, info, var, obj, object, tmp, temp
+
 =head1 CONFIGURATION
 
 This policy has two options: C<names> and C<add_names>.
