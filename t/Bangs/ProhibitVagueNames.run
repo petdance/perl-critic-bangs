@@ -60,3 +60,12 @@ our @info;
 local %tmp;
 my $lumpy = $data; # Not a problem, becuase it's not ours
 my $barfy = @object; # Not a problem, becuase it's not ours
+
+#-----------------------------------------------------------------------------
+
+## name Complain about poorly-named subroutines, too.
+## failures 2
+## cut
+
+sub info {}
+sub temp {}
