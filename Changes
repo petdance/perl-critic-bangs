@@ -1,5 +1,13 @@
 Revision history for Perl-Critic-Bangs
 
+1.12    
+====================================
+[DOCUMENTATION]
+Added more documentation about how ProhibitNumberedNames does its
+matching.  There was nothing in there that said that if "utf8" was an
+exception that "foo_utf8" would pass cleanly.
+
+
 1.10    Mon Aug 20 14:26:07 CDT 2012
 ====================================
 [ENHANCEMENTS]

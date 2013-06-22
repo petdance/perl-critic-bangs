@@ -71,6 +71,9 @@ the exceptions.  If C<$base64> is acceptable as an exception, so is
 C<$calculated_base64>.  The exception must be separated from the left
 part of the variable by at least one underscore to be recognized.
 
+The exceptions are case-insensitive.  C<$UTF8> and C<$utf8> are both
+seen the same as far as being exceptions.
+
 To replace the list of exceptions, specify a value for the
 C<exceptions> option.
 
@@ -104,11 +107,14 @@ sub violates {
     my $basename = $canonical;
     $basename =~ s/.*:://;
     $basename =~ s/^[\$@%]//;
+    $basename = lc $basename;
 
     if ( $basename =~ /\D+\d+$/ ) {
-        $basename =~ s/.+_(.+)/$1/; # handle things like "partial_md5"
-        $basename = lc $basename;
         return if $self->{_exceptions}{$basename};
+
+        if ( $basename =~ s/.+_(.+)/$1/ ) { # handle things like "partial_md5"
+            return if $self->{_exceptions}{$basename};
+        }
 
         my $desc = qq{Variable named "$canonical"};
         my $expl = 'Variable names should not be differentiated only by digits';
