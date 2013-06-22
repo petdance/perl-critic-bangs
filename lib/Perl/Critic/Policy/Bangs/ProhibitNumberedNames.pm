@@ -77,8 +77,8 @@ C<exceptions> option.
 To add exceptions to the list, give a value for C<add_exceptions> in
 your F<.perlcriticrc> file like this:
 
-    [Bangs::ProhibitVagueNames]
-    add_names = adam12 route66
+    [Bangs::ProhibitNumberedNames]
+    add_exceptions = adam12 route66
 
 =cut
 
