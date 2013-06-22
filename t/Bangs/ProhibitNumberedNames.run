@@ -57,12 +57,22 @@ my $logan7;
 
 #-----------------------------------------------------------------------------
 
-## name $av_format1 and $av_format2 from TW.  Apparently the underscores make a difference.  See GitHub issue #6.
+## name partial exceptions require underscores as separators
+## failures 1
+## cut
+
+  my $mymd5;
+
+#-----------------------------------------------------------------------------
+
+## name Underscores can confuse the partial matching.  See GitHub issue #6.
 ## failures 0
 ## parms { exceptions => 'av_format1 av_format2 mp3' }
 ## cut
 
   my ($av_format1,$av_format2, $mp3) = fetch_formats();
+
+  my $this_av_format1 = 'this should pass';
 
 #-----------------------------------------------------------------------------
 

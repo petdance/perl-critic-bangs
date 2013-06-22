@@ -99,6 +99,19 @@ sub initialize_if_enabled {
     return $TRUE;
 }
 
+sub _init_exception_regexes {
+    my $self = shift;
+
+    my @regexes;
+    for my $exception ( keys %{$self->{_exceptions}} ) {
+        push( @regexes, qr/.*_\Q$exception\E$/ );
+    }
+
+    $self->{_exception_regexes} = \@regexes;
+
+    return;
+}
+
 sub violates {
     my ( $self, $elem, $doc ) = @_;
 
@@ -110,10 +123,15 @@ sub violates {
     $basename = lc $basename;
 
     if ( $basename =~ /\D+\d+$/ ) {
+        # Check to see if it's an exact match for an exception.
+        # $md5 is excepted by "md5"
         return if $self->{_exceptions}{$basename};
 
-        if ( $basename =~ s/.+_(.+)/$1/ ) { # handle things like "partial_md5"
-            return if $self->{_exceptions}{$basename};
+        # Check to see if they match the end of the variable regexes.
+        # $foo_md5 is excepted by "md5"
+        $self->_init_exception_regexes unless $self->{_exception_regexes};
+        for my $re ( @{$self->{_exception_regexes}} ) {
+            return if $basename =~ $re;
         }
 
         my $desc = qq{Variable named "$canonical"};
