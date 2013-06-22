@@ -64,4 +64,10 @@ my $logan7;
 
   my ($av_format1,$av_format2, $mp3) = fetch_formats();
 
+## name Only check variables we create.  RT #20854
+## failures 0
+## cut
+
+  my $foo = $bad_var2;
+
 #-----------------------------------------------------------------------------
