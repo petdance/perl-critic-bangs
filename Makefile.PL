@@ -25,7 +25,7 @@ my %parms = (
         'Test::More'                    => '0.96', # For subtest()
         'Test::Perl::Critic'            => 1.01,
     },
-    LICENSE             => 'perl',
+    LICENSE             => 'artistic_2',
 
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean               => { FILES => 'Perl-Critic-Bangs-*' },
