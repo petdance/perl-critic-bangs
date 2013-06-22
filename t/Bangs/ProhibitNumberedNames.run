@@ -92,4 +92,18 @@ my $logan7;
 
 #-----------------------------------------------------------------------------
 
+## name Check for poorly named subs, too
+## failures 1
+## cut
 
+  sub flooble {}
+  sub process2 {}
+  sub bongo {}
+
+#-----------------------------------------------------------------------------
+
+## name Only check for poorly named subs that we create.
+## failures 0
+## cut
+
+  my $foo = process2();
