@@ -25,7 +25,7 @@ sub supported_parameters {
 
 sub default_severity { return $SEVERITY_MEDIUM        }
 sub default_themes   { return qw( bangs maintenance ) }
-sub applies_to       { return 'PPI::Token::Symbol'    }
+sub applies_to       { return 'PPI::Statement::Variable' }
 
 =head1 NAME
 
@@ -115,30 +115,42 @@ sub _init_exception_regexes {
 sub violates {
     my ( $self, $elem, $doc ) = @_;
 
-    # make $basename be the variable name with no sigils or namespaces.
-    my $canonical = $elem->canonical();
-    my $basename = $canonical;
-    $basename =~ s/.*:://;
-    $basename =~ s/^[\$@%]//;
-    $basename = lc $basename;
+    my @violations;
+    my @symbols = $elem->symbols;
 
-    if ( $basename =~ /\D+\d+$/ ) {
-        # Check to see if it's an exact match for an exception.
-        # $md5 is excepted by "md5"
-        return if $self->{_exceptions}{$basename};
+    for my $symbol ( @symbols ) {
+        # make $basename be the variable name with no sigils or namespaces.
+        my $canonical = $symbol->canonical();
+        my $basename = $canonical;
+        $basename =~ s/.*:://;
+        $basename =~ s/^[\$@%]//;
+        $basename = lc $basename;
 
-        # Check to see if they match the end of the variable regexes.
-        # $foo_md5 is excepted by "md5"
-        $self->_init_exception_regexes unless $self->{_exception_regexes};
-        for my $re ( @{$self->{_exception_regexes}} ) {
-            return if $basename =~ $re;
+        if ( $basename =~ /\D+\d+$/ ) {
+            # Check to see if it's an exact match for an exception.
+            # $md5 is excepted by "md5"
+            return if $self->{_exceptions}{$basename};
+
+            # Check to see if they match the end of the variable regexes.
+            # $foo_md5 is excepted by "md5"
+            $self->_init_exception_regexes unless $self->{_exception_regexes};
+            my $ok = 0;
+            for my $re ( @{$self->{_exception_regexes}} ) {
+                if ( $basename =~ $re ) {
+                    $ok = 1;
+                    last;
+                }
+            }
+
+            if ( !$ok ) {
+                my $desc = qq{Variable named "$canonical"};
+                my $expl = 'Variable names should not be differentiated only by digits';
+                push( @violations, $self->violation( $desc, $expl, $symbol ) );
+            }
         }
-
-        my $desc = qq{Variable named "$canonical"};
-        my $expl = 'Variable names should not be differentiated only by digits';
-        return $self->violation( $desc, $expl, $elem );
     }
-    return;
+
+    return @violations;
 }
 
 1;
