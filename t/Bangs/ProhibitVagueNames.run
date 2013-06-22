@@ -42,3 +42,10 @@ my $data = 'bonzo';
 
 #-----------------------------------------------------------------------------
 
+## name Not responsible for variables I didn't declare.
+## failures 0
+## cut
+
+my $perfectly_valid_name = $data;
+
+#-----------------------------------------------------------------------------
