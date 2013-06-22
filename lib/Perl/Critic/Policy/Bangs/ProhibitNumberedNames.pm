@@ -116,12 +116,11 @@ sub violates {
     my ( $self, $elem, $doc ) = @_;
 
     my @violations;
-    my @symbols = $elem->symbols;
 
-    for my $symbol ( @symbols ) {
+    for my $symbol ( $elem->symbols ) {
         # make $basename be the variable name with no sigils or namespaces.
-        my $canonical = $symbol->canonical();
-        my $basename = $canonical;
+        my $fullname = $symbol->canonical();
+        my $basename = $fullname;
         $basename =~ s/.*:://;
         $basename =~ s/^[\$@%]//;
         $basename = lc $basename;
@@ -143,7 +142,7 @@ sub violates {
             }
 
             if ( !$ok ) {
-                my $desc = qq{Variable named "$canonical"};
+                my $desc = qq{Variable named "$fullname"};
                 my $expl = 'Variable names should not be differentiated only by digits';
                 push( @violations, $self->violation( $desc, $expl, $symbol ) );
             }
