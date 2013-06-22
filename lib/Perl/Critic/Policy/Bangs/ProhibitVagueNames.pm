@@ -27,7 +27,7 @@ sub supported_parameters {
 
 sub default_severity     { return $SEVERITY_MEDIUM        }
 sub default_themes       { return qw( bangs readability ) }
-sub applies_to           { return 'PPI::Token::Symbol'    }
+sub applies_to           { return 'PPI::Statement::Variable' }
 
 =for stopwords whitespace
 
@@ -85,20 +85,25 @@ sub initialize_if_enabled {
 sub violates {
     my ( $self, $elem, $doc ) = @_;
 
-    # make $basename be the variable name with no sigils or namespaces.
-    my $canonical = $elem->canonical();
-    my $basename = $canonical;
-    $basename =~ s/.*:://;
-    $basename =~ s/^[\$@%]//;
+    my @violations;
 
-    foreach my $naughty ( keys %{ $self->{'_names'} } ) {
-        if ( $basename eq $naughty ) {
-            my $desc = qq(Variable named "$canonical");
-            my $expl = 'Variable names should be specific, not vague';
-            return $self->violation( $desc, $expl, $elem );
+    for my $symbol ( $elem->symbols ) {
+        # Make $basename be the variable name with no sigils or namespaces.
+        my $canonical = $symbol->canonical();
+        my $basename = $canonical;
+        $basename =~ s/.*:://;
+        $basename =~ s/^[\$@%]//;
+
+        foreach my $naughty ( keys %{ $self->{'_names'} } ) {
+            if ( $basename eq $naughty ) {
+                my $desc = qq{Variable named "$canonical"};
+                my $expl = 'Variable names should be specific, not vague';
+                push( @violations, $self->violation( $desc, $expl, $symbol ) );
+            }
         }
     }
-    return;
+
+    return @violations;
 }
 
 1;

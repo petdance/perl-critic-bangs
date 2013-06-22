@@ -2,6 +2,12 @@ Revision history for Perl-Critic-Bangs
 
 1.12    
 ====================================
+[ENHANCEMENTS]
+The Bangs::ProhibitVagueNames and Bangs::ProhibitNumberedNames policies
+now only check for variables that you declare.  They will no longer
+complain if you are forced to use someone else's poorly named variable.
+
+
 [DOCUMENTATION]
 Added more documentation about how ProhibitNumberedNames does its
 matching.  There was nothing in there that said that if "utf8" was an
