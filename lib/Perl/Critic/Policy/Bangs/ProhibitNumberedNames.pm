@@ -25,7 +25,7 @@ sub supported_parameters {
 
 sub default_severity { return $SEVERITY_MEDIUM        }
 sub default_themes   { return qw( bangs maintenance ) }
-sub applies_to       { return 'PPI::Statement::Variable' }
+sub applies_to       { return 'PPI::Statement::Variable', 'PPI::Statement::Sub' }
 
 =head1 NAME
 
@@ -117,15 +117,26 @@ sub violates {
 
     my @violations;
 
-    for my $symbol ( $elem->symbols ) {
-        # make $basename be the variable name with no sigils or namespaces.
-        my $fullname = $symbol->canonical();
+    if ( ref($elem) eq 'PPI::Statement::Variable' ) {
+        for my $symbol ( $elem->symbols ) {
+            # make $basename be the variable name with no sigils or namespaces.
+            my $fullname = $symbol->canonical;
+            my $basename = $fullname;
+            $basename =~ s/.*:://;
+            $basename =~ s/^[\$@%]//;
+
+            push( @violations, $self->_potential_violation( $symbol, $fullname, $basename, 'Variable' ) );
+        }
+    }
+    elsif ( ref($elem) eq 'PPI::Statement::Sub' ) {
+        my $fullname = $elem->name;
         my $basename = $fullname;
         $basename =~ s/.*:://;
-        $basename =~ s/^[\$@%]//;
-        $basename = lc $basename;
 
-        push( @violations, $self->_potential_violation( $symbol, $fullname, $basename, 'Variable' ) );
+        push( @violations, $self->_potential_violation( $elem, $fullname, $basename, 'Subroutine' ) );
+    }
+    else {
+        die;
     }
 
     return @violations;
@@ -139,6 +150,8 @@ sub _potential_violation {
     my $what     = shift;
 
     if ( $basename =~ /\D+\d+$/ ) {
+        $basename = lc $basename;
+
         # Check to see if it's an exact match for an exception.
         # $md5 is excepted by "md5"
         return if $self->{_exceptions}{$basename};
