@@ -146,18 +146,13 @@ sub _potential_violation {
         # Check to see if they match the end of the variable regexes.
         # $foo_md5 is excepted by "md5"
         $self->_init_exception_regexes unless $self->{_exception_regexes};
-        my $ok = 0;
         for my $re ( @{$self->{_exception_regexes}} ) {
-            if ( $basename =~ $re ) {
-                $ok = 1;
-                last;
-            }
+            return if $basename =~ $re; # We're OK via exception
         }
-        if ( !$ok ) {
-            my $desc = qq{Variable named "$fullname"};
-            my $expl = 'Variable names should not be differentiated only by digits';
-            return $self->violation( $desc, $expl, $symbol );
-        }
+
+        my $desc = qq{$what named "$fullname"};
+        my $expl = "$what names should not be differentiated only by digits";
+        return $self->violation( $desc, $expl, $symbol );
     }
 
     return;
