@@ -125,31 +125,42 @@ sub violates {
         $basename =~ s/^[\$@%]//;
         $basename = lc $basename;
 
-        if ( $basename =~ /\D+\d+$/ ) {
-            # Check to see if it's an exact match for an exception.
-            # $md5 is excepted by "md5"
-            return if $self->{_exceptions}{$basename};
-
-            # Check to see if they match the end of the variable regexes.
-            # $foo_md5 is excepted by "md5"
-            $self->_init_exception_regexes unless $self->{_exception_regexes};
-            my $ok = 0;
-            for my $re ( @{$self->{_exception_regexes}} ) {
-                if ( $basename =~ $re ) {
-                    $ok = 1;
-                    last;
-                }
-            }
-
-            if ( !$ok ) {
-                my $desc = qq{Variable named "$fullname"};
-                my $expl = 'Variable names should not be differentiated only by digits';
-                push( @violations, $self->violation( $desc, $expl, $symbol ) );
-            }
-        }
+        push( @violations, $self->_potential_violation( $symbol, $fullname, $basename, 'Variable' ) );
     }
 
     return @violations;
+}
+
+sub _potential_violation {
+    my $self     = shift;
+    my $symbol   = shift;
+    my $fullname = shift;
+    my $basename = shift;
+    my $what     = shift;
+
+    if ( $basename =~ /\D+\d+$/ ) {
+        # Check to see if it's an exact match for an exception.
+        # $md5 is excepted by "md5"
+        return if $self->{_exceptions}{$basename};
+
+        # Check to see if they match the end of the variable regexes.
+        # $foo_md5 is excepted by "md5"
+        $self->_init_exception_regexes unless $self->{_exception_regexes};
+        my $ok = 0;
+        for my $re ( @{$self->{_exception_regexes}} ) {
+            if ( $basename =~ $re ) {
+                $ok = 1;
+                last;
+            }
+        }
+        if ( !$ok ) {
+            my $desc = qq{Variable named "$fullname"};
+            my $expl = 'Variable names should not be differentiated only by digits';
+            return $self->violation( $desc, $expl, $symbol );
+        }
+    }
+
+    return;
 }
 
 1;
