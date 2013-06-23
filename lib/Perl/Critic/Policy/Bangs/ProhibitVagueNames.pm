@@ -91,21 +91,33 @@ sub violates {
 
     for my $symbol ( $elem->symbols ) {
         # Make $basename be the variable name with no sigils or namespaces.
-        my $canonical = $symbol->canonical();
-        my $basename = $canonical;
-        $basename =~ s/.*:://;
+        my $fullname = $symbol->canonical;
+        my $basename = $fullname;
         $basename =~ s/^[\$@%]//;
+        $basename =~ s/.*:://;
 
-        foreach my $naughty ( keys %{ $self->{'_names'} } ) {
-            if ( $basename eq $naughty ) {
-                my $desc = qq{Variable named "$canonical"};
-                my $expl = 'Variable names should be specific, not vague';
-                push( @violations, $self->violation( $desc, $expl, $symbol ) );
-            }
-        }
+        push( @violations, $self->_potential_violation( $symbol, $fullname, $basename, 'Variable' ) );
     }
 
     return @violations;
+}
+
+sub _potential_violation {
+    my $self     = shift;
+    my $symbol   = shift;
+    my $fullname = shift;
+    my $basename = shift;
+    my $what     = shift;
+
+    foreach my $naughty ( keys %{ $self->{'_names'} } ) {
+        if ( $basename eq $naughty ) {
+            my $desc = qq{$what named "$fullname"};
+            my $expl = "$what names should be specific, not vague";
+            return $self->violation( $desc, $expl, $symbol );
+        }
+    }
+
+    return;
 }
 
 1;
