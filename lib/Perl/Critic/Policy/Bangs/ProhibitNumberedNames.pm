@@ -119,7 +119,8 @@ sub violates {
 
     my @violations;
 
-    if ( ref($elem) eq 'PPI::Statement::Variable' ) {
+    my $type = ref($elem);
+    if ( $type eq 'PPI::Statement::Variable' ) {
         for my $symbol ( $elem->symbols ) {
             # make $basename be the variable name with no sigils or namespaces.
             my $fullname = $symbol->canonical;
@@ -130,15 +131,18 @@ sub violates {
             push( @violations, $self->_potential_violation( $symbol, $fullname, $basename, 'Variable' ) );
         }
     }
-    elsif ( ref($elem) eq 'PPI::Statement::Sub' ) {
+    elsif ( $type eq 'PPI::Statement::Sub' ) {
         my $fullname = $elem->name;
         my $basename = $fullname;
         $basename =~ s/.*:://;
 
         push( @violations, $self->_potential_violation( $elem, $fullname, $basename, 'Subroutine' ) );
     }
+    elsif ( $type eq 'PPI::Statement::Scheduled' ) {
+        # Ignore BEGIN, INIT, etc
+    }
     else {
-        die;
+        die "Unknown type $type";
     }
 
     return @violations;

@@ -102,8 +102,12 @@ my $logan7;
 
 #-----------------------------------------------------------------------------
 
-## name Only check for poorly named subs that we create.
+## name Only check for poorly named subs that we create.  Ignore BEGIN etc.
 ## failures 0
 ## cut
 
   my $foo = process2();
+
+  BEGIN {
+      my $x = 4;
+  }
