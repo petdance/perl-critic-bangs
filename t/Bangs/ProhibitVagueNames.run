@@ -63,9 +63,10 @@ my $barfy = @object; # Not a problem, becuase it's not ours
 
 #-----------------------------------------------------------------------------
 
-## name Complain about poorly-named subroutines, too.
-## failures 2
+## name Complain about poorly-named subroutines, too.  Case-insensitive.
+## failures 3
 ## cut
 
 sub info {}
-sub temp {}
+sub TEMP {}
+sub Data {}

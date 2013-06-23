@@ -11,13 +11,13 @@ sub supported_parameters {
     return (
         {
             name           => 'exceptions',
-            description    => 'Things to allow in variable names.',
+            description    => 'Things to allow in variable and subroutine names.',
             behavior       => 'string list',
             default_string => 'base64 md5 rc4 sha0 sha1 sha256 utf8 x11 win32',
         },
         {
             name           => 'add_exceptions',
-            description    => 'Additional things to allow in variable names.',
+            description    => 'Additional things to allow in variable and subroutine names.',
             behavior       => 'string list',
         },
     );
@@ -29,7 +29,7 @@ sub applies_to       { return 'PPI::Statement::Variable', 'PPI::Statement::Sub' 
 
 =head1 NAME
 
-Perl::Critic::Policy::Bangs::ProhibitNumberedNames - Prohibit variables differentiated by trailing numbers.
+Perl::Critic::Policy::Bangs::ProhibitNumberedNames - Prohibit variables and subroutines with names that end in digits.
 
 =head1 AFFILIATION
 
@@ -51,6 +51,8 @@ by the silly "3" at the end.  Instead, it should be:
     my $subtotal = $merch_total + ($merch_total * $taxrate);
     my $grand_total = $subtotal + $shipping;
 
+Both variable and subroutine names are checked.
+
 See
 L<http://www.oreillynet.com/onlamp/blog/2004/03/the_worlds_two_worst_variable.html>
 for more of my ranting on this.
@@ -66,10 +68,10 @@ to have ending with a number:
 
     base64 md5 rc4 sha0 sha1 sha256 utf8 x11 win32
 
-The exceptions for the policy also apply to variables based on
-the exceptions.  If C<$base64> is acceptable as an exception, so is
-C<$calculated_base64>.  The exception must be separated from the left
-part of the variable by at least one underscore to be recognized.
+The exceptions for the policy also apply to names based on the exceptions.
+If C<$base64> is acceptable as an exception, so is C<$calculated_base64>.
+The exception must be separated from the left part of the name by at
+least one underscore to be recognized.
 
 The exceptions are case-insensitive.  C<$UTF8> and C<$utf8> are both
 seen the same as far as being exceptions.
