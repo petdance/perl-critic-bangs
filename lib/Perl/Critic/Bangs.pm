@@ -11,11 +11,11 @@ Perl::Critic::Bangs - A collection of handy Perl::Critic policies
 
 =head1 VERSION
 
-Version 1.10
+Version 1.11_01
 
 =cut
 
-our $VERSION = '1.10';
+our $VERSION = '1.11_01';
 
 =head1 SYNOPSIS
 
@@ -40,7 +40,8 @@ Tests should have a plan.
 
 =head2 L<Perl::Critic::Policy::Bangs::ProhibitNumberedNames>
 
-Variables like C<$user> and C<$user2> are insufficiently distinguished.
+Subroutines and variables like C<$user> and C<$user2> are insufficiently
+distinguished.
 
 =head2 L<Perl::Critic::Policy::Bangs::ProhibitRefProtoOrProto>
 
@@ -54,7 +55,8 @@ variable created with C<qr()> is usually not doing what you expect.
 
 =head2 L<Perl::Critic::Policy::Bangs::ProhibitVagueNames>
 
-Vague variables like C<$data> or C<$info> are not descriptive enough.
+Vague variables and subroutines like C<$data> or C<$info> are not
+descriptive enough.
 
 =head1 WHY IS IT CALLED Perl::Critic::Bangs?
 

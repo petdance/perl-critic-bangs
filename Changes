@@ -1,6 +1,6 @@
 Revision history for Perl-Critic-Bangs
 
-1.12    
+1.11_01
 ====================================
 [ENHANCEMENTS]
 The Bangs::ProhibitVagueNames and Bangs::ProhibitNumberedNames policies
@@ -11,6 +11,9 @@ have been updated in much the same way:
 * They only check variables or subroutines that you declare.  They will
 no longer complain if you are forced to use someone else's poorly-named
 variable.
+
+NOTE: The functionality of checking subroutines is experimental.  If it
+causes too many problems, I may remove it, or make it its own policy.
 
 [DOCUMENTATION]
 Added more documentation about how ProhibitNumberedNames does its
