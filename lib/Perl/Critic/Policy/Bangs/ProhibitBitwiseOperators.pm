@@ -65,7 +65,7 @@ Mike O'Regan <moregan@stresscafe.com>
 
 =head1 COPYRIGHT
 
-Copyright (C) 2006-2011 Andy Lester and Mike O'Regan
+Copyright (C) 2006-2013 Andy Lester and Mike O'Regan
 
 This library is free software; you can redistribute it and/or modify
 it under the terms of the Artistic License 2.0.

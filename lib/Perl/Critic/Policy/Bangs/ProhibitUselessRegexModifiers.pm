@@ -133,7 +133,7 @@ Thanks to Andy Lester, "<andy at petdance.com>" for pointing out this common pro
 
 =head1 COPYRIGHT
 
-Copyright (c) 2007-2011 Andy Lester <andy@petdance.com> and Andrew
+Copyright (c) 2007-2013 Andy Lester <andy@petdance.com> and Andrew
 Moore <amoore@mooresystems.com>
 
 This library is free software; you can redistribute it and/or modify it

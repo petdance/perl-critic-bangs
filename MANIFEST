@@ -32,9 +32,6 @@ t/Bangs/ProhibitNumberedNames.run
 t/Bangs/ProhibitRefProtoOrProto.run
 t/Bangs/ProhibitUselessRegexModifiers.run
 t/Bangs/ProhibitVagueNames.run
-t/tlib/Perl/Critic/Policy/Test.pm
-t/tlib/ViolationTest.pm
-t/tlib/ViolationTest2.pm
 
 xt/criticize.t
 xt/includes.t
