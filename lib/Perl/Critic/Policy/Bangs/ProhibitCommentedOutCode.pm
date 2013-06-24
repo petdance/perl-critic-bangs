@@ -28,15 +28,13 @@ sub applies_to           { return 'PPI::Token::Comment'   }
 
 sub violates {
     my ( $self, $elem, $doc ) = @_;
-    my @viols = ();
-
-    my $nodes = $doc->find( 'PPI::Token::Comment' );
 
     if ( $elem =~ $self->{_commentedcoderegex} ) {
         my $desc = q(Code found in comment);
         my $expl = q(Commented-out code found can be confusing);
         return $self->violation( $desc, $expl, $elem );
     }
+
     return;
 }
 
