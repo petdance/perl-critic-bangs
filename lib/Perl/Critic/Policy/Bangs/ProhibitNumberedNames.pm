@@ -179,6 +179,7 @@ sub _potential_violation {
 
 1;
 
+__END__
 =head1 AUTHOR
 
 Andy Lester C<< <andy at petdance.com> >>

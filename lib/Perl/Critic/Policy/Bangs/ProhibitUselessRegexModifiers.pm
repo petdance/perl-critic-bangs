@@ -84,8 +84,7 @@ sub _sorted_modifiers {
 
 1;
 
-=pod
-
+__END__
 =head1 NAME
 
 Perl::Critic::Policy::Bangs::ProhibitUselessRegexModifiers - Adding modifiers to a regular expression made up entirely of a variable created with qr() is usually not doing what you expect.

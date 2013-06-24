@@ -34,11 +34,6 @@ sub violates {
 1;
 
 __END__
-
-#---------------------------------------------------------------------------
-
-=pod
-
 =head1 NAME
 
 Perl::Critic::Policy::Bangs::ProhibitNoPlan - Know what you're going to test.

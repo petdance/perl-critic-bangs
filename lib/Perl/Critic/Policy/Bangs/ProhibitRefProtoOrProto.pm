@@ -44,11 +44,6 @@ sub violates {
 1;
 
 __END__
-
-#---------------------------------------------------------------------------
-
-=pod
-
 =head1 NAME
 
 Perl::Critic::Policy::Bangs::ProhibitRefProtoOrProto - Create a clone() method if you need copies of objects.
