@@ -1,6 +1,6 @@
 Revision history for Perl-Critic-Bangs
 
-1.11_01
+1.11_01 Mon Jun 24 10:09:32 CDT 2013
 ====================================
 [ENHANCEMENTS]
 The Bangs::ProhibitVagueNames and Bangs::ProhibitNumberedNames policies
