@@ -51,7 +51,7 @@ __END__
 
 =head1 NAME
 
-Perl::Critic::Policy::Bangs::ProhibitRefProtoOrProto - Create a C<clone()> method if you need copies of objects.
+Perl::Critic::Policy::Bangs::ProhibitRefProtoOrProto - Create a clone() method if you need copies of objects.
 
 =head1 AFFILIATION
 
