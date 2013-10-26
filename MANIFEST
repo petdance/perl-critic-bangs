@@ -20,7 +20,6 @@ t/00_modules.t
 t/13_bundled_policies.t
 t/14_policy_parameters.t
 t/20_policies.t
-t/40_perlcriticrc
 t/93_version.t
 
 t/Bangs/ProhibitBitwiseOperators.run
