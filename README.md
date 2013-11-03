@@ -20,20 +20,20 @@ After installing, you can find documentation for this module with the perldoc co
 
 You can also look for information at:
 
-    Search CPAN
-        http://search.cpan.org/dist/Perl-Critic-Bangs
+* Search CPAN
+    * http://search.cpan.org/dist/Perl-Critic-Bangs
 
-    CPAN Request Tracker:
-        http://rt.cpan.org/NoAuth/Bugs.html?Dist=Perl-Critic-Bangs
+* CPAN Request Tracker:
+    * http://rt.cpan.org/NoAuth/Bugs.html?Dist=Perl-Critic-Bangs
 
-    AnnoCPAN, annotated CPAN documentation:
-        http://annocpan.org/dist/Perl-Critic-Bangs
+* AnnoCPAN, annotated CPAN documentation:
+    * http://annocpan.org/dist/Perl-Critic-Bangs
 
-    CPAN Ratings:
-        http://cpanratings.perl.org/d/Perl-Critic-Bangs
+* CPAN Ratings:
+    * http://cpanratings.perl.org/d/Perl-Critic-Bangs
 
-    Source code repository:
-        http://github.com/petdance/perl-critic-bangs
+* Source code repository:
+    * http://github.com/petdance/perl-critic-bangs
 
 
 # COPYRIGHT AND LICENSE
