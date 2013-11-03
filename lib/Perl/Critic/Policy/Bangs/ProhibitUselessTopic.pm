@@ -7,7 +7,7 @@ use Readonly;
 use Perl::Critic::Utils qw{ :severities :classification :ppi };
 use base 'Perl::Critic::Policy';
 
-our $VERSION = '1.11_01';
+our $VERSION = '1.11_02';
 
 Readonly::Scalar my $DESC          => q{Useless use of $_};
 Readonly::Scalar my $EXPL_REGEX    => q{$_ may be omitted when matching a regular expression};

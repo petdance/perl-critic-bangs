@@ -7,7 +7,7 @@ use Readonly;
 use Perl::Critic::Utils qw{ :severities :classification :ppi };
 use base 'Perl::Critic::Policy';
 
-our $VERSION = '1.11_01';
+our $VERSION = '1.11_02';
 
 Readonly::Scalar my $DESC => q{Prohibits adding "m" modifier to compiled regular expressions where it does nothing};
 Readonly::Scalar my $EXPL => <<'EOF';
@@ -30,7 +30,7 @@ sub violates {
     my ( $self, $elem, undef ) = @_;
 
 
-    # we throw a violation if all these conditions are true:
+    # We throw a violation if all these conditions are true:
     # 1) there's an 'm' modifier
     # 2) the *only* thing in the regex is a compiled regex from a previous qr().
     # 3) the modifiers are not the same in both places
@@ -69,7 +69,7 @@ sub _find_previous_quote_like_regexp {
 
     my $qlop = $elem;
     while ( ! $qlop->isa( 'PPI::Token::QuoteLike::Regexp' ) ) {
-        # we use previous_token instead of sprevious_sibling to get into previous statements.
+        # We use previous_token instead of sprevious_sibling to get into previous statements.
         $qlop = $qlop->previous_token() or return;
     }
     return $qlop;
@@ -102,13 +102,13 @@ effects they are looking for.
 
 Correct:
 
-  my $regex = qr(abc)m;
-  if ( $string =~ /$regex/ ) {};
+    my $regex = qr(abc)m;
+    if ( $string =~ /$regex/ ) {};
 
 Not what you want:
 
-  my $regex = qr(abc);
-  if ( $string =~ /$regex/m ) {}; ## this triggers a violation of this policy.
+    my $regex = qr(abc);
+    if ( $string =~ /$regex/m ) {}; ## this triggers a violation of this policy.
 
 See the thread that starts at:
 L<http://www.nntp.perl.org/group/perl.perl5.porters/2007/12/msg131709.html>
