@@ -48,6 +48,10 @@ distinguished.
 Determining the class in a constructor by using C<ref($proto) || $proto> is usually
 a cut-n-paste that is incorrect.
 
+=head2 L<Perl::Critic::Policy::Bangs::ProhibitUselessTopic>
+
+Explicitly matching or substituting against C<$_> is clutter.
+
 =head2 L<Perl::Critic::Policy::Bangs::ProhibitUselessRegexModifiers>
 
 Adding modifiers to a regular expression made up entirely of a
@@ -61,7 +65,7 @@ descriptive enough.
 =head1 WHY IS IT CALLED Perl::Critic::Bangs?
 
 I didn't want to call it "Perl::Critic::Lester" or "Perl::Critic::Petdance"
-that would make it sound like they were only my rules.  Other people
+since that would make it sound like they were only my rules.  Other people
 will likely include their own set of rules, too.
 
 So I started thinking of names of famous critics.  Ebert, Siskel,

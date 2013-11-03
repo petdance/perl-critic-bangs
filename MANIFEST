@@ -6,6 +6,7 @@ lib/Perl/Critic/Policy/Bangs/ProhibitNoPlan.pm
 lib/Perl/Critic/Policy/Bangs/ProhibitNumberedNames.pm
 lib/Perl/Critic/Policy/Bangs/ProhibitRefProtoOrProto.pm
 lib/Perl/Critic/Policy/Bangs/ProhibitUselessRegexModifiers.pm
+lib/Perl/Critic/Policy/Bangs/ProhibitUselessTopic.pm
 lib/Perl/Critic/Policy/Bangs/ProhibitVagueNames.pm
 lib/Perl/Critic/Policy/Bangs/ProhibitDebuggingModules.pm
 
@@ -30,6 +31,7 @@ t/Bangs/ProhibitNoPlan.run
 t/Bangs/ProhibitNumberedNames.run
 t/Bangs/ProhibitRefProtoOrProto.run
 t/Bangs/ProhibitUselessRegexModifiers.run
+t/Bangs/ProhibitUselessTopic.run
 t/Bangs/ProhibitVagueNames.run
 
 xt/criticize.t

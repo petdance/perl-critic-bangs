@@ -1,5 +1,17 @@
 Revision history for Perl-Critic-Bangs
 
+NEXT
+====================================
+[ENHANCEMENTS]
+Added Bangs::ProhibitUselessTopic to warn against constructs like:
+
+    $_ =~ /foo/
+
+or
+    my $size = -s $_;
+
+where the $_ is unnecessary.
+
 1.11_01 Mon Jun 24 10:09:32 CDT 2013
 ====================================
 [ENHANCEMENTS]
