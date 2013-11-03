@@ -48,3 +48,6 @@ use Data::Dumper::Concise::Sugar;
 #use Data::Dumper::Names;
 use Data::Dumper::Declare qw( Dumper );
 use Getopt::Long;
+
+#-----------------------------------------------------------------------------
+# ex: set ft=perl:
