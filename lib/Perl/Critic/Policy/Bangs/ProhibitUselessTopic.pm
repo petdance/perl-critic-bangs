@@ -61,7 +61,7 @@ sub violates {
 __END__
 =head1 NAME
 
-Perl::Critic::Policy::Bangs::ProhibitUselessTopic - Explicitly checking a regex against $_ is unnecessary
+Perl::Critic::Policy::Bangs::ProhibitUselessTopic - Don't use $_ in regexes or filetests.
 
 =head1 AFFILIATION
 
@@ -69,14 +69,16 @@ This Policy is part of the L<Perl::Critic::Bangs> distribution.
 
 =head1 DESCRIPTION
 
+There are a number of places where C<$_>, or "the topic" variable,
+is unnecessary.
+
 Match or substitution operations are performed against variables, such as:
 
     $x =~ /foo/;
     $x =~ s/foo/bar/;
     $x =~ tr/a-mn-z/n-za-m/;
 
-If a variable is not specified, the match is against C<$_>, also known as
-"the topic".
+If a variable is not specified, the match is against C<$_>.
 
     # These are identical.
     /foo/;
@@ -102,6 +104,9 @@ Another place that C<$_> is unnecessary is with a filetest operator.
     # These are identical.
     if ( -r $_ ) { ...
     if ( -r ) { ...
+
+The exception is after the C<-t> filetest operator, which instead of
+defaulting to C<$_> defaults to C<STDIN>.
 
 =head1 CONFIGURATION
 
