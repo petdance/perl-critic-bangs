@@ -97,7 +97,7 @@ my ( $line, $dummy ) = grep { $_ =~ $stat->{regex} } @contents;
 
 if ($_ !~ $pat) { foo(); }
 
-## name Potential false positives
+## name Potential false positives, but none should fail.
 ## failures 0
 ## cut
 
@@ -106,7 +106,8 @@ $_ += /foo/;
 print s/x/y/;
 foo(tr/x/y/);
 +tr/x/y/;
-=head $x =~ /foo/
+=head $_ =~ /foo/
+# $_ =~ /foo/
 'foo' =~ $_;
 
 
