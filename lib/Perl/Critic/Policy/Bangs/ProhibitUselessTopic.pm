@@ -92,8 +92,14 @@ If a variable is not specified, the match is against C<$_>.
     tr/a-mn-z/n-za-m/;
     $_ =~ tr/a-mn-z/n-za-m/;
 
-Including the C<$_ =~> is unnecessary, adds complexity, and is not
-idiomatic Perl.
+This applies to negative matching as well.
+
+    # These are identical
+    if ( $_ !~ /DEBUG/ ) { ...
+    if ( !/DEBUG ) { ...
+
+Including the C<$_ =~> or C<$_ !~> is unnecessary, adds complexity,
+and is not idiomatic Perl.
 
 Another place that C<$_> is unnecessary is with a filetest operator.
 
