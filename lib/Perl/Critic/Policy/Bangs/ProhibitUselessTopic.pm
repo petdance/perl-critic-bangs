@@ -114,6 +114,10 @@ Another place that C<$_> is unnecessary is with a filetest operator.
 The exception is after the C<-t> filetest operator, which instead of
 defaulting to C<$_> defaults to C<STDIN>.
 
+    # These are NOT identical.
+    if ( -t $_ ) { ...
+    if ( -t ) { ...  # Checks STDIN, not $_
+
 =head1 CONFIGURATION
 
 This Policy is not configurable except for the standard options.
