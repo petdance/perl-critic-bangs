@@ -1,5 +1,11 @@
 Revision history for Perl-Critic-Bangs
 
+NEXT
+====================================
+Bangs::ProhibitUselessTopic now knows about Perl built-ins that
+don't need to take $_.
+
+
 1.11_02 Sun Nov  3 00:52:18 CDT 2013
 ====================================
 [ENHANCEMENTS]
@@ -11,6 +17,7 @@ or
     my $size = -s $_;
 
 where the $_ is unnecessary.
+
 
 1.11_01 Mon Jun 24 10:09:32 CDT 2013
 ====================================

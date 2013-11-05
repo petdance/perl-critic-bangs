@@ -23,24 +23,26 @@ tr/a-mn-z/n-za-m/;
 #-----------------------------------------------------------------------------
 
 ## name Useless topic
-## failures 4
+## failures 5
 ## cut
 
 $_ =~ /foo/;
 $_ =~ m/foo/;
 $_ =~ s/foo/bar/;
 $_ =~ tr/a-mn-z/n-za-m/;
+$_ =~ y/a-mn-z/n-za-m/;
 
 #-----------------------------------------------------------------------------
 
 ## name Useless topic in a negative match
-## failures 4
+## failures 5
 ## cut
 
 $_ !~ /foo/;
 $_ !~ m/foo/;
 $_ !~ s/foo/bar/;
 $_ !~ tr/a-mn-z/n-za-m/;
+$_ !~ y/a-mn-z/n-za-m/;
 
 #-----------------------------------------------------------------------------
 
@@ -71,6 +73,48 @@ if ( -t $_ ) { foo(); }
 
 #-----------------------------------------------------------------------------
 
+## name Topics in a function call, with parens
+## failures 5
+## cut
+
+my $x = length($_);
+my $y = sin($_);
+my $z = defined($_);
+my @x = split( /\t/, $_ );
+unlink($_);
+# Policy cannot handle this yet.
+#my $backwards = reverse($_);
+
+#-----------------------------------------------------------------------------
+
+## name Topics in a function call, no parens
+## failures 5
+## cut
+
+my $x = length $_;
+my $y = sin $_;
+my $z = defined $_;
+my @x = split /\t/, $_;
+unlink $_;
+# Policy cannot handle this yet.
+#my $backwards = reverse $_;
+
+#-----------------------------------------------------------------------------
+
+## name Function calls with $_ but in ways that should not be flagged.
+## failures 0
+## cut
+
+my @y = split( /\t/, $_, 3 );
+my @y = split /\t/, $_, 3;
+unlink $_ . '.txt';
+my $z = sin( $_ * 4 );
+my $a = tan $_ + 5;
+my @backwards = reverse $_;
+my @backwards = reverse($_);
+
+#-----------------------------------------------------------------------------
+
 ## name More complex constructions
 ## failures 11
 ## cut
@@ -96,6 +140,8 @@ ok( ( grep { $_ =~ $regwarn } ( $title->warnings() ) ), 'expected warning text r
 my ( $line, $dummy ) = grep { $_ =~ $stat->{regex} } @contents;
 
 if ($_ !~ $pat) { foo(); }
+
+#-----------------------------------------------------------------------------
 
 ## name Potential false positives, but none should fail.
 ## failures 0
