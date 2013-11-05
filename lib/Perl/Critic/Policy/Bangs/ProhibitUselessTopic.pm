@@ -13,7 +13,7 @@ Readonly::Scalar my $DESC                => q{Useless use of $_};
 Readonly::Scalar my $EXPL_REGEX          => q{$_ should be omitted when matching a regular expression};
 Readonly::Scalar my $EXPL_FILETEST       => q{$_ should be omitted when using a filetest operator};
 Readonly::Scalar my $EXPL_FUNCTION       => q{$_ should be omitted when calling "%s"};
-Readonly::Scalar my $EXPL_FUNCTION_STUDY => q{$_ should be omitted when calling "study" with two arguments};
+Readonly::Scalar my $EXPL_FUNCTION_SPLIT => q{$_ should be omitted when calling "split" with two arguments};
 
 sub supported_parameters { return () }
 sub default_severity     { return $SEVERITY_MEDIUM }
@@ -91,7 +91,7 @@ sub violates {
             my $topic_arg = $args[ $nth_arg_for_topic - 1 ];
             my @tokens = @{$topic_arg};
             if ( (@tokens == 1) && ($tokens[0]->content eq '$_') ) {
-                my $msg = $is_split ? $EXPL_FUNCTION_STUDY : sprintf( $EXPL_FUNCTION, $content );
+                my $msg = $is_split ? $EXPL_FUNCTION_SPLIT : sprintf( $EXPL_FUNCTION, $content );
                 return $self->violation( $DESC, $msg, $elem );
             }
         }
