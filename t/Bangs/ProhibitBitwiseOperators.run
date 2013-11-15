@@ -59,6 +59,20 @@ $a xor $b;
 
 #-----------------------------------------------------------------------------
 
+## name These function references aren't bitwise AND
+## failures 0
+## cut
+
+my $ref;
+
+$ref = \&foo;
+&$ref;
+
+$ref = \& foo;
+&$ref;
+
+#-----------------------------------------------------------------------------
+
 ## name Bitwise OR failure
 ## failures 1
 ## cut
