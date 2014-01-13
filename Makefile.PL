@@ -56,7 +56,10 @@ sub MY::libscan {
 
 sub MY::postamble {
     return <<'MAKE_FRAG';
-.PHONY: tags critic
+.PHONY: tags critic nytprof
+
+#PERLCRITIC=$(which perlcritic)
+PERLCRITIC=/opt/local/libexec/perl5.12/sitebin//perlcritic
 
 tags:
 	ctags -f tags --recurse --totals \
@@ -65,8 +68,12 @@ tags:
 		--languages=Perl --langmap=Perl:+.t \
 		lib/ t/
 
+nytprof: all
+	$(PERL) -d:NYTProf $(PERLCRITIC) -profile perlcriticrc -1 -quiet lib/ t/ Makefile.PL >> /dev/null 2>&1
+	nytprofhtml
+
 critic:
-	perlcritic -profile perlcriticrc -1 -quiet lib/ t/ Makefile.PL
+	$(PERLCRITIC) -profile perlcriticrc -1 -quiet lib/ t/ Makefile.PL
 
 MAKE_FRAG
 }
