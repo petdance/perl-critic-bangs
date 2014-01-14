@@ -37,7 +37,8 @@ TODO
 #-----------------------------------------------------------------------------
 
 ## name Flags as POD
-## failures 1
+## failures 0
+## parms { exempt_pod => 1 };
 ## cut
 
 =head1 TODO
