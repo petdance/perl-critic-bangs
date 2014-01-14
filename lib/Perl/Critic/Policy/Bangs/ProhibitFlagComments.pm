@@ -78,6 +78,14 @@ in your F<.perlcriticrc> file like this:
   [Bangs::ProhibitFlagComments]
   keywords = XXX TODO FIXME BUG REVIEW
 
+In addition you can enable exemption of examination of POD sections
+using the exempt_pod flag.
+
+  [Bangs::ProhibitFlagComments]
+  exempt_pod = 1
+
+POD is not exempted by default
+
 =head1 AUTHOR
 
 Andrew Moore <amoore@mooresystems.com>
