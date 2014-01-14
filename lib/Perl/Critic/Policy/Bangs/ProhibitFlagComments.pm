@@ -17,6 +17,12 @@ sub supported_parameters {
             behavior       => 'string list',
             default_string => 'XXX FIXME TODO',
         },
+        {
+            name           => 'exempt_pod',
+            description    => 'Flag to enable exemption of policy evaluation in POD context.',
+            default_string => '0',
+            behavior       => 'boolean',
+        },
     );
 }
 
@@ -28,9 +34,6 @@ sub applies_to           { return qw( PPI::Token::Comment PPI::Token::Pod ) }
 
 sub violates {
     my ( $self, $elem, $doc ) = @_;
-
-    #XXX short circuit of configurable parameter
-    $self->{_exempt_pod} = 1;
 
     #We are in POD context, so we consider the exempt POD parameter
     if (ref $elem eq 'PPI::Token::Pod' and $self->{_exempt_pod}) {
