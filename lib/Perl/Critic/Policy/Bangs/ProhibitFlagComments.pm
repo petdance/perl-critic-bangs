@@ -24,11 +24,18 @@ sub default_severity     { return $SEVERITY_LOW                             }
 sub default_themes       { return qw( bangs maintenance )                   }
 sub applies_to           { return qw( PPI::Token::Comment PPI::Token::Pod ) }
 
-
 #---------------------------------------------------------------------------
 
 sub violates {
     my ( $self, $elem, $doc ) = @_;
+
+    #XXX short circuit of configurable parameter
+    $self->{_exempt_pod} = 1;
+
+    #We are in POD context, so we consider the exempt POD parameter
+    if (ref $elem eq 'PPI::Token::Pod' and $self->{_exempt_pod}) {
+        return;
+    }
 
     foreach my $keyword ( keys %{ $self->{'_keywords'} } ) {
         if ( index( $elem->content(), $keyword ) != -1 ) { ## no critic (ProhibitMagicNumbers)
