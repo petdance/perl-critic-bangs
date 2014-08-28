@@ -90,7 +90,7 @@ sub violates {
     my ($self, $include, undef) = @_;
     return unless defined $include->type and ($include->type eq 'use' || $include->type eq 'require');
     my $included = $include->module or return;
-    my $EXPL = "You've loaded $included, which probably shouln't be loaded in production";
+    my $EXPL = "You've loaded $included, which probably shouldn't be loaded in production";
 
     my @banned = ( keys %{ $self->{_debugging_modules} } );
     return $self->violation($DESC, $EXPL, $include)
