@@ -122,21 +122,16 @@ L<http://github.com/petdance/perl-critic-bangs>
 
 Thanks to
 
-=over 4
-
-=item * Andy Moore for helping me get this off the ground.
-
-=item * Oystein Torget for bug reports and patches.
-
-=item * Mike O'Regan for ProhibitBitwiseOperators.
-
-=item * Elliot Shank and the rest of the Perl::Critic team for ongoing support.
-
-=back
+Fred Moyer,
+Andy Moore,
+Oystein Torget,
+Mike O'Regan,
+Elliot Shank
+and the rest of the Perl::Critic team for ongoing support.
 
 =head1 COPYRIGHT
 
-Copyright 2006-2013 Andy Lester.
+Copyright 2006-2014 Andy Lester.
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the Artistic License 2.0.
