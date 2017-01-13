@@ -11,11 +11,11 @@ Perl::Critic::Bangs - A collection of handy Perl::Critic policies
 
 =head1 VERSION
 
-Version 1.11_02
+Version 1.11_03
 
 =cut
 
-our $VERSION = '1.11_02';
+our $VERSION = '1.11_03';
 
 =head1 SYNOPSIS
 
@@ -121,7 +121,8 @@ L<http://github.com/petdance/perl-critic-bangs>
 =head1 ACKNOWLEDGMENTS
 
 Thanks to
-
+William Braswell,
+Oliver Trosien,
 Fred Moyer,
 Andy Moore,
 Oystein Torget,
@@ -131,7 +132,7 @@ and the rest of the Perl::Critic team for ongoing support.
 
 =head1 COPYRIGHT
 
-Copyright 2006-2014 Andy Lester.
+Copyright 2006-2017 Andy Lester.
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the Artistic License 2.0.
