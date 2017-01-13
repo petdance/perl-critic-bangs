@@ -68,7 +68,9 @@ my $ref;
 $ref = \&foo;
 &$ref;
 
-$ref = \& foo;
+# XXX This should be parsed the same as the one above, but is not.
+# See GitHub issue #9
+#$ref = \& foo;
 &$ref;
 
 #-----------------------------------------------------------------------------
