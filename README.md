@@ -1,5 +1,8 @@
 # Perl-Critic-Bangs
 
+* [![Travis Build Status](https://travis-ci.org/petdance/perl-critic-bangs.svg?branch=dev)](https://travis-ci.org/petdance/perl-critic-bangs)
+* [CPAN Testers](http://www.cpantesters.org/distro/P/Perl-Critic-Bangs.html)
+
 Perl::Critic::Bangs is a collection of Perl::Critic policies to
 help make your life easier.
 
