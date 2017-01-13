@@ -3,8 +3,10 @@ Revision history for Perl-Critic-Bangs
 NEXT
 ====================================
 [ENHANCEMENTS]
-Bangs::ProhibitUselessTopic now knows about Perl built-ins that
-don't need to take $_.
+Removed Bangs::ProhibitUselessTopic, because it has been added to
+Perl::Critic as of version 1.122 as two separate policies,
+BuiltinFunctions::ProhibitUselessTopic and
+RegularExpressions::ProhibitUselessTopic.
 
 [FIXES]
 GitHub issue #16: Bangs::ProhibitBitwiseOperators had default themes of
