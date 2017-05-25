@@ -3,41 +3,20 @@
 !_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
-!_TAG_PROGRAM_VERSION	5.6	//
-B	lib/Perl/Critic/Policy/Bangs/ProhibitDebuggingModules.pm	/^                B::Stats$/;"	l
-Carp	lib/Perl/Critic/Policy/Bangs/ProhibitDebuggingModules.pm	/^                Carp::Always.*$/;"	l
-Carp	lib/Perl/Critic/Policy/Bangs/ProhibitDebuggingModules.pm	/^                Carp::Diagnostics$/;"	l
-Carp	lib/Perl/Critic/Policy/Bangs/ProhibitDebuggingModules.pm	/^                Carp::REPL$/;"	l
-Carp	lib/Perl/Critic/Policy/Bangs/ProhibitDebuggingModules.pm	/^                Carp::Source::Always$/;"	l
-Carp	lib/Perl/Critic/Policy/Bangs/ProhibitDebuggingModules.pm	/^                Carp::Trace$/;"	l
-Data	lib/Perl/Critic/Policy/Bangs/ProhibitDebuggingModules.pm	/^                Data::Dump$/;"	l
-Data	lib/Perl/Critic/Policy/Bangs/ProhibitDebuggingModules.pm	/^                Data::Dump::Filtered$/;"	l
-Data	lib/Perl/Critic/Policy/Bangs/ProhibitDebuggingModules.pm	/^                Data::Dump::Streamer$/;"	l
-Data	lib/Perl/Critic/Policy/Bangs/ProhibitDebuggingModules.pm	/^                Data::Dump::Trace$/;"	l
-Data	lib/Perl/Critic/Policy/Bangs/ProhibitDebuggingModules.pm	/^                Data::Dumper.*$/;"	l
-Data	lib/Perl/Critic/Policy/Bangs/ProhibitDebuggingModules.pm	/^                Data::PrettyPrintObjects$/;"	l
-Data	lib/Perl/Critic/Policy/Bangs/ProhibitDebuggingModules.pm	/^                Data::Printer$/;"	l
-Data	lib/Perl/Critic/Policy/Bangs/ProhibitDebuggingModules.pm	/^                Data::Show$/;"	l
-Data	lib/Perl/Critic/Policy/Bangs/ProhibitDebuggingModules.pm	/^                Data::Skeleton$/;"	l
-Data	lib/Perl/Critic/Policy/Bangs/ProhibitDebuggingModules.pm	/^                Data::TreeDumper$/;"	l
-Devel	lib/Perl/Critic/Policy/Bangs/ProhibitDebuggingModules.pm	/^                Devel::Ditto$/;"	l
-Devel	lib/Perl/Critic/Policy/Bangs/ProhibitDebuggingModules.pm	/^                Devel::Dwarn$/;"	l
-Devel	lib/Perl/Critic/Policy/Bangs/ProhibitDebuggingModules.pm	/^                Devel::Modlist$/;"	l
-Devel	lib/Perl/Critic/Policy/Bangs/ProhibitDebuggingModules.pm	/^                Devel::Monitor$/;"	l
-Devel	lib/Perl/Critic/Policy/Bangs/ProhibitDebuggingModules.pm	/^                Devel::StackTrace$/;"	l
-Devel	lib/Perl/Critic/Policy/Bangs/ProhibitDebuggingModules.pm	/^                Devel::Trace$/;"	l
-Devel	lib/Perl/Critic/Policy/Bangs/ProhibitDebuggingModules.pm	/^                Devel::Unplug$/;"	l
+!_TAG_PROGRAM_VERSION	5.8	//
+CHANGEPROFILE	t/commentedoutcode.t	/^CHANGEPROFILE: {$/;"	l
+DEFAULTPROFILE	t/commentedoutcode.t	/^DEFAULTPROFILE: {$/;"	l
 MODULE	t/20_policies.t	/^              MODULE:$/;"	l
-Perl	t/00_modules.t	/^Perl::Critic::TestUtils::block_perlcriticrc();$/;"	l
-Perl	t/13_bundled_policies.t	/^Perl::Critic::TestUtils::block_perlcriticrc();$/;"	l
-Perl	t/14_policy_parameters.t	/^            Perl::Critic::PolicyParameter->new($param_specification);$/;"	l
-Perl	t/14_policy_parameters.t	/^Perl::Critic::TestUtils::block_perlcriticrc();$/;"	l
-Perl	t/20_policies.t	/^Perl::Critic::TestUtils::block_perlcriticrc();$/;"	l
-Readonly	lib/Perl/Critic/Policy/Bangs/ProhibitBitwiseOperators.pm	/^Readonly::Scalar my $DESC => q{Use of bitwise operator};$/;"	l
-Readonly	lib/Perl/Critic/Policy/Bangs/ProhibitBitwiseOperators.pm	/^Readonly::Scalar my $EXPL => q{Use of bitwise operator};$/;"	l
-Readonly	lib/Perl/Critic/Policy/Bangs/ProhibitDebuggingModules.pm	/^Readonly::Scalar my $DESC => q\/Debugging module loaded\/;$/;"	l
-Readonly	lib/Perl/Critic/Policy/Bangs/ProhibitUselessRegexModifiers.pm	/^Readonly::Scalar my $DESC => q{Prohibits adding "m" modifier to compiled regular expressions where it does nothing};$/;"	l
-Readonly	lib/Perl/Critic/Policy/Bangs/ProhibitUselessRegexModifiers.pm	/^Readonly::Scalar my $EXPL => <<'EOF';$/;"	l
+Perl::Critic::Bangs	lib/Perl/Critic/Bangs.pm	/^package Perl::Critic::Bangs;$/;"	p
+Perl::Critic::Policy::Bangs::ProhibitBitwiseOperators	lib/Perl/Critic/Policy/Bangs/ProhibitBitwiseOperators.pm	/^package Perl::Critic::Policy::Bangs::ProhibitBitwiseOperators;$/;"	p
+Perl::Critic::Policy::Bangs::ProhibitCommentedOutCode	lib/Perl/Critic/Policy/Bangs/ProhibitCommentedOutCode.pm	/^package Perl::Critic::Policy::Bangs::ProhibitCommentedOutCode;$/;"	p
+Perl::Critic::Policy::Bangs::ProhibitDebuggingModules	lib/Perl/Critic/Policy/Bangs/ProhibitDebuggingModules.pm	/^package Perl::Critic::Policy::Bangs::ProhibitDebuggingModules;$/;"	p
+Perl::Critic::Policy::Bangs::ProhibitFlagComments	lib/Perl/Critic/Policy/Bangs/ProhibitFlagComments.pm	/^package Perl::Critic::Policy::Bangs::ProhibitFlagComments;$/;"	p
+Perl::Critic::Policy::Bangs::ProhibitNoPlan	lib/Perl/Critic/Policy/Bangs/ProhibitNoPlan.pm	/^package Perl::Critic::Policy::Bangs::ProhibitNoPlan;$/;"	p
+Perl::Critic::Policy::Bangs::ProhibitNumberedNames	lib/Perl/Critic/Policy/Bangs/ProhibitNumberedNames.pm	/^package Perl::Critic::Policy::Bangs::ProhibitNumberedNames;$/;"	p
+Perl::Critic::Policy::Bangs::ProhibitRefProtoOrProto	lib/Perl/Critic/Policy/Bangs/ProhibitRefProtoOrProto.pm	/^package Perl::Critic::Policy::Bangs::ProhibitRefProtoOrProto;$/;"	p
+Perl::Critic::Policy::Bangs::ProhibitUselessRegexModifiers	lib/Perl/Critic/Policy/Bangs/ProhibitUselessRegexModifiers.pm	/^package Perl::Critic::Policy::Bangs::ProhibitUselessRegexModifiers;$/;"	p
+Perl::Critic::Policy::Bangs::ProhibitVagueNames	lib/Perl/Critic/Policy/Bangs/ProhibitVagueNames.pm	/^package Perl::Critic::Policy::Bangs::ProhibitVagueNames;$/;"	p
 _find_previous_quote_like_regexp	lib/Perl/Critic/Policy/Bangs/ProhibitUselessRegexModifiers.pm	/^sub _find_previous_quote_like_regexp {$/;"	s
 _init_exception_regexes	lib/Perl/Critic/Policy/Bangs/ProhibitNumberedNames.pm	/^sub _init_exception_regexes {$/;"	s
 _potential_violation	lib/Perl/Critic/Policy/Bangs/ProhibitNumberedNames.pm	/^sub _potential_violation {$/;"	s
@@ -63,7 +42,7 @@ default_severity	lib/Perl/Critic/Policy/Bangs/ProhibitNumberedNames.pm	/^sub def
 default_severity	lib/Perl/Critic/Policy/Bangs/ProhibitRefProtoOrProto.pm	/^sub default_severity     { return $SEVERITY_HIGH         }$/;"	s
 default_severity	lib/Perl/Critic/Policy/Bangs/ProhibitUselessRegexModifiers.pm	/^sub default_severity     { return $SEVERITY_HIGH       }$/;"	s
 default_severity	lib/Perl/Critic/Policy/Bangs/ProhibitVagueNames.pm	/^sub default_severity     { return $SEVERITY_MEDIUM        }$/;"	s
-default_themes	lib/Perl/Critic/Policy/Bangs/ProhibitBitwiseOperators.pm	/^sub default_themes       { return qw( core bugs )        }$/;"	s
+default_themes	lib/Perl/Critic/Policy/Bangs/ProhibitBitwiseOperators.pm	/^sub default_themes       { return qw( bangs bugs )       }$/;"	s
 default_themes	lib/Perl/Critic/Policy/Bangs/ProhibitCommentedOutCode.pm	/^sub default_themes       { return qw( bangs maintenance ) }$/;"	s
 default_themes	lib/Perl/Critic/Policy/Bangs/ProhibitDebuggingModules.pm	/^sub default_themes          { return qw\/ bangs maintenance \/ }$/;"	s
 default_themes	lib/Perl/Critic/Policy/Bangs/ProhibitFlagComments.pm	/^sub default_themes       { return qw( bangs maintenance )                   }$/;"	s

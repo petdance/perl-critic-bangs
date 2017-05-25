@@ -6,7 +6,6 @@ lib/Perl/Critic/Policy/Bangs/ProhibitNoPlan.pm
 lib/Perl/Critic/Policy/Bangs/ProhibitNumberedNames.pm
 lib/Perl/Critic/Policy/Bangs/ProhibitRefProtoOrProto.pm
 lib/Perl/Critic/Policy/Bangs/ProhibitUselessRegexModifiers.pm
-lib/Perl/Critic/Policy/Bangs/ProhibitUselessTopic.pm
 lib/Perl/Critic/Policy/Bangs/ProhibitVagueNames.pm
 lib/Perl/Critic/Policy/Bangs/ProhibitDebuggingModules.pm
 
@@ -14,7 +13,7 @@ Changes
 Makefile.PL
 MANIFEST
 perlcriticrc
-README
+README.md
 TODO
 
 t/00_modules.t
@@ -22,6 +21,7 @@ t/13_bundled_policies.t
 t/14_policy_parameters.t
 t/20_policies.t
 t/93_version.t
+t/commentedoutcode.t
 
 t/Bangs/ProhibitBitwiseOperators.run
 t/Bangs/ProhibitCommentedOutCode.run
@@ -31,7 +31,6 @@ t/Bangs/ProhibitNoPlan.run
 t/Bangs/ProhibitNumberedNames.run
 t/Bangs/ProhibitRefProtoOrProto.run
 t/Bangs/ProhibitUselessRegexModifiers.run
-t/Bangs/ProhibitUselessTopic.run
 t/Bangs/ProhibitVagueNames.run
 
 xt/criticize.t

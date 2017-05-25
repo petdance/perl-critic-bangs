@@ -5,7 +5,7 @@ use warnings;
 use Perl::Critic::Utils;
 use base 'Perl::Critic::Policy';
 
-our $VERSION = '1.11_02';
+our $VERSION = '1.12';
 
 #---------------------------------------------------------------------------
 
@@ -63,14 +63,14 @@ system.
 By default, this policy attempts to look for commented out code by
 looking for variable assignments in code as represented by the regular
 expression C<qr/\$[A-Za-z_].*=/> found in a comment. You can change
-that regex by specifying a value for C<coderegex>.
+that regex by specifying a value for C<commentedcoderegex>.
 
   [Bangs::ProhibitCommentedOutCode]
-  coderegex = \$[A-Za-z_].*=/
+  commentedcoderegex = \$[A-Za-z_].*=/
 
 =head1 AUTHOR
 
-Andrew Moore <amoore@mooresystems.com>
+Andrew Moore C<< amoore@mooresystems.com >>
 
 =head1 ACKNOWLEDGMENTS
 
@@ -79,7 +79,7 @@ Based on App::Fluff by Andy Lester, "<andy at petdance.com>"
 
 =head1 COPYRIGHT
 
-Copyright (C) 2006-2013 Andy Lester and Andrew Moore
+Copyright (C) 2006-2017 Andy Lester and Andrew Moore
 
 This library is free software; you can redistribute it and/or modify
 it under the terms of the Artistic License 2.0.

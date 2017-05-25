@@ -1,5 +1,8 @@
 # Perl-Critic-Bangs
 
+* [![Travis Build Status](https://travis-ci.org/petdance/perl-critic-bangs.svg?branch=dev)](https://travis-ci.org/petdance/perl-critic-bangs)
+* [CPAN Testers](http://www.cpantesters.org/distro/P/Perl-Critic-Bangs.html)
+
 Perl::Critic::Bangs is a collection of Perl::Critic policies to
 help make your life easier.
 
@@ -38,7 +41,7 @@ You can also look for information at:
 
 # COPYRIGHT AND LICENSE
 
-Copyright (C) 2006-2013 Andy Lester
+Copyright (C) 2006-2017 Andy Lester
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the Artistic License 2.0.

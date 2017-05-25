@@ -8,7 +8,7 @@ use Readonly;
 use Perl::Critic::Utils qw{ :severities :classification :data_conversion };
 use base 'Perl::Critic::Policy';
 
-our $VERSION = '1.11_02';
+our $VERSION = '1.12';
 
 #-----------------------------------------------------------------------------
 
@@ -19,7 +19,7 @@ Readonly::Scalar my $EXPL => q{Use of bitwise operator};
 
 sub supported_parameters { return ()                     }
 sub default_severity     { return $SEVERITY_HIGHEST      }
-sub default_themes       { return qw( core bugs )        }
+sub default_themes       { return qw( bangs bugs )       }
 sub applies_to           { return 'PPI::Token::Operator' }
 
 #-----------------------------------------------------------------------------
@@ -65,7 +65,7 @@ Mike O'Regan <moregan@stresscafe.com>
 
 =head1 COPYRIGHT
 
-Copyright (C) 2006-2013 Andy Lester and Mike O'Regan
+Copyright (C) 2006-2017 Andy Lester and Mike O'Regan
 
 This library is free software; you can redistribute it and/or modify
 it under the terms of the Artistic License 2.0.

@@ -28,7 +28,7 @@ sub check_version {
     # Skip POD
     $content =~ s/^__END__.*//xms;
 
-    # only look at perl scripts, not sh scripts
+    # Only look at perl scripts, not sh scripts.
     return if (m{blib/script/} && $content !~ m/\A \#![^\r\n]+?perl/xms);
 
     my @version_lines = $content =~ m/ ( [^\n]* \$VERSION [^\n]* ) /gxms;
