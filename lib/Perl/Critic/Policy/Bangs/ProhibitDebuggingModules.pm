@@ -2,7 +2,7 @@ package Perl::Critic::Policy::Bangs::ProhibitDebuggingModules;
 use strict;
 use warnings;
 
-our $VERSION = '1.11_03';
+our $VERSION = '1.12';
 
 use List::MoreUtils qw(any);
 use Readonly;
