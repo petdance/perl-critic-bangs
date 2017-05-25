@@ -1,5 +1,11 @@
 Revision history for Perl-Critic-Bangs
 
+NEXT
+====================================
+[DOCUMENTATION]
+Fixed docs on how to configure ProhibitCommentedOutCode.
+
+
 1.11_03 Thu Jan 12 23:14:38 CST 2017
 ====================================
 [ENHANCEMENTS]

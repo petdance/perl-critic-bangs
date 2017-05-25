@@ -21,6 +21,7 @@ t/13_bundled_policies.t
 t/14_policy_parameters.t
 t/20_policies.t
 t/93_version.t
+t/commentedoutcode.t
 
 t/Bangs/ProhibitBitwiseOperators.run
 t/Bangs/ProhibitCommentedOutCode.run
