@@ -34,7 +34,7 @@ my %parms = (
 if ( $ExtUtils::MakeMaker::VERSION ge '6.46' ) {
     $parms{META_MERGE} = {
         resources => {
-            license     => 'http://dev.perl.org/licenses/',
+            license     => 'https://opensource.org/licenses/Artistic-2.0',
             bugtracker  => 'https://github.com/petdance/perl-critic-bangs',
             repository  => 'git://github.com/petdance/perl-critic-bangs.git',
         }
