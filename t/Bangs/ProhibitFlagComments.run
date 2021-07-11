@@ -22,9 +22,9 @@ my $XXX = 'foo';
 
 =head1 SYNOPSIS
 
-FIXME: needs a description
-
 =over 4
+
+FIXME: needs a description
 
 =item one
 
@@ -35,4 +35,16 @@ TODO
 =cut
 
 #-----------------------------------------------------------------------------
+
+## name Flags as POD
+## failures 0
+## parms { exempt_pod => 1 };
+## cut
+
+=head1 TODO
+
+=cut
+
+#-----------------------------------------------------------------------------
+
 # ex: set ft=perl:
