@@ -48,10 +48,6 @@ distinguished.
 Determining the class in a constructor by using C<ref($proto) || $proto> is usually
 a cut-n-paste that is incorrect.
 
-=head2 L<Perl::Critic::Policy::Bangs::ProhibitUselessTopic>
-
-Explicitly matching or substituting against C<$_> is clutter.
-
 =head2 L<Perl::Critic::Policy::Bangs::ProhibitUselessRegexModifiers>
 
 Adding modifiers to a regular expression made up entirely of a
