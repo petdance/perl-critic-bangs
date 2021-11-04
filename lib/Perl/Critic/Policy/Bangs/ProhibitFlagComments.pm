@@ -31,7 +31,7 @@ sub violates {
     my ( $self, $elem, $doc ) = @_;
 
     foreach my $keyword ( keys %{ $self->{'_keywords'} } ) {
-        if ( index( $elem->content(), $keyword ) != -1 ) { ## no critic (ProhibitMagicNumbers)
+        if ( $elem->content() =~ /\b\Q$keyword\E\b/ ) {
             my $desc = qq(Flag comment '$keyword' found);
             my $expl = qq(Comments containing "$keyword" typically indicate bugs or problems that the developer knows exist);
             return $self->violation( $desc, $expl, $elem );
