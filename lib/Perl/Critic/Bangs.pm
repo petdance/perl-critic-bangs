@@ -26,6 +26,10 @@ will help make your code better.
 
 The rules included with the Perl::Critic::Bangs group include:
 
+=head2 L<Perl::Critic::Policy::Bangs::ProhibitBitwiseOperators>
+
+Bitwise operators are usually accidentally used instead of logical boolean operators.
+
 =head2 L<Perl::Critic::Policy::Bangs::ProhibitCommentedOutCode>
 
 Commented-out code is usually noise.  It should be removed.
