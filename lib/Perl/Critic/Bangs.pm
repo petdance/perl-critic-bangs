@@ -121,6 +121,7 @@ L<http://github.com/petdance/perl-critic-bangs>
 =head1 ACKNOWLEDGMENTS
 
 Thanks to
+Ville Skyttä,
 William Braswell,
 Oliver Trosien,
 Fred Moyer,
@@ -132,7 +133,7 @@ and the rest of the Perl::Critic team for ongoing support.
 
 =head1 COPYRIGHT
 
-Copyright 2006-2017 Andy Lester.
+Copyright 2006-2021 Andy Lester.
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the Artistic License 2.0.
