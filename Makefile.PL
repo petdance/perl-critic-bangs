@@ -2,6 +2,8 @@
 
 use strict;
 use warnings;
+use 5.010;
+
 use ExtUtils::MakeMaker 6.46;
 
 
@@ -11,6 +13,8 @@ my %parms = (
     VERSION_FROM        => 'lib/Perl/Critic/Bangs.pm',
     ABSTRACT            => 'Perl::Critic::Bangs - A collection of policies for Perl::Critic',
     PL_FILES            => {},
+    MIN_PERL_VERSION    => '5.10.1',
+    LICENSE             => 'artistic_2',
     PREREQ_PM => {
         'List::MoreUtils'               => 0,
         'Perl::Critic'                  => 1.122,
@@ -24,10 +28,11 @@ my %parms = (
         'PPI::Cache'                    => 0,
         'PPI::Document'                 => 0,
         'Readonly'                      => 0,
+    },
+    TEST_REQUIRES => {
         'Test::More'                    => '0.96', # For subtest()
         'Test::Perl::Critic'            => 1.01,
     },
-    LICENSE             => 'artistic_2',
     META_MERGE => {
         resources => {
             license     => 'https://opensource.org/licenses/Artistic-2.0',

@@ -2,6 +2,8 @@
 
 use strict;
 use warnings;
+use 5.010;
+
 use PPI::Document;
 use Test::More;
 use Perl::Critic::TestUtils qw(bundled_policy_names);

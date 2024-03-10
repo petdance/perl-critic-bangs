@@ -2,6 +2,7 @@
 
 use strict;
 use warnings;
+use 5.010;
 
 use English qw(-no_match_vars);
 
