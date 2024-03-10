@@ -48,17 +48,5 @@ for my $mod ( @bundled_policy_names ) {
     }
 }
 
-#-----------------------------------------------------------------------------
 
-# ensure we run true if this test is loaded by
-# t/00_modules.t_without_optional_dependencies.t
-1;
-
-# Local Variables:
-#   mode: cperl
-#   cperl-indent-level: 4
-#   fill-column: 78
-#   indent-tabs-mode: nil
-#   c-indentation-style: bsd
-# End:
-# ex: set ts=8 sts=4 sw=4 tw=78 ft=perl expandtab :
+exit 0;

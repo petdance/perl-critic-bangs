@@ -47,3 +47,6 @@ END_PERL
 
     is( pcritique( $policy, \$code, $config ), 1, $policy);
 }
+
+
+exit 0;
