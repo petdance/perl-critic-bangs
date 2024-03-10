@@ -15,6 +15,14 @@ requires 'PPI::Cache'                    => 0;
 requires 'PPI::Document'                 => 0;
 requires 'Readonly'                      => 0;
 
+on 'configure' => sub {
+    requires 'ExtUtils::MakeMaker' => '6.46';
+};
+
+on 'build' => sub {
+    requires 'ExtUtils::MakeMaker' => '6.46';
+};
+
 on 'test' => sub {
     requires 'Test::More'         => '0.96'; # For subtest()
     requires 'Test::Perl::Critic' => 1.01;
