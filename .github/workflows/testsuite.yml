@@ -21,7 +21,7 @@ jobs:
       - name: perl -V
         run: perl -V
       - name: Install Dependencies
-        uses: perl-actions/install-with-cpm@v1
+        uses: perl-actions/install-with-cpm@stable
         with:
           cpanfile: "cpanfile"
       - name: Makefile.PL
@@ -44,6 +44,9 @@ jobs:
       matrix:
         perl-version:
           - "latest"
+          - "5.38"
+          - "5.36"
+          - "5.34"
           - "5.32"
           - "5.30"
           - "5.28"
@@ -56,7 +59,6 @@ jobs:
           - "5.14"
           - "5.12"
           - "5.10"
-          - "5.8"
 
     container:
       image: perl:${{ matrix.perl-version }}
@@ -66,7 +68,7 @@ jobs:
       - name: perl -V
         run: perl -V
       - name: Install Dependencies
-        uses: perl-actions/install-with-cpm@v1
+        uses: perl-actions/install-with-cpm@stable
         with:
           sudo: false
           cpanfile: "cpanfile"
@@ -88,7 +90,7 @@ jobs:
       - name: perl -V
         run: perl -V
       - name: Install Dependencies
-        uses: perl-actions/install-with-cpm@v1
+        uses: perl-actions/install-with-cpm@stable
         with:
           sudo: false
           cpanfile: "cpanfile"
@@ -109,7 +111,7 @@ jobs:
       - name: perl -V
         run: perl -V
       - name: Install Dependencies
-        uses: perl-actions/install-with-cpm@v1
+        uses: perl-actions/install-with-cpm@stable
         with:
           sudo: false
           cpanfile: "cpanfile"
