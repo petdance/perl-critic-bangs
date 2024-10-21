@@ -5,7 +5,7 @@ use warnings;
 use Perl::Critic::Utils;
 use base 'Perl::Critic::Policy';
 
-our $VERSION = '1.12';
+our $VERSION = '1.14';
 
 #----------------------------------------------------------------------------
 
@@ -79,7 +79,7 @@ Based on App::Fluff by Andy Lester, "<andy at petdance.com>"
 
 =head1 COPYRIGHT
 
-Copyright (c) 2006-2013 Andy Lester <andy@petdance.com> and Andrew
+Copyright (c) 2006-2024 Andy Lester <andy@petdance.com> and Andrew
 Moore <amoore@mooresystems.com>.
 
 This library is free software; you can redistribute it and/or modify

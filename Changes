@@ -1,6 +1,6 @@
 Revision history for Perl-Critic-Bangs
 
-NEXT
+1.14    Sun Oct 20 23:22:43 CDT 2024
 ====================================
 [FIXES]
 ProhibitFlagComments now checks for entire words, not just partial words.

@@ -9,7 +9,7 @@ use Test::More;
 use Perl::Critic::TestUtils qw(bundled_policy_names);
 use English qw(-no_match_vars);
 
-our $VERSION = '1.12';
+our $VERSION = '1.14';
 
 Perl::Critic::TestUtils::block_perlcriticrc();
 
