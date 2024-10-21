@@ -1,3 +1,4 @@
+---
 name: testsuite
 
 on:
@@ -17,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: perl -V
         run: perl -V
       - name: Install Dependencies
@@ -42,29 +43,33 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        # See https://www.reddit.com/r/perl/comments/1dg1fur/
+        os:
+          - ubuntu-22.04
         perl-version:
-          - "latest"
-          - "5.38"
-          - "5.36"
-          - "5.34"
-          - "5.32"
-          - "5.30"
-          - "5.28"
-          - "5.26"
-          - "5.24"
-          - "5.22"
-          - "5.20"
-          - "5.18"
-          - "5.16"
-          - "5.14"
-          - "5.12"
-          - "5.10"
+          - latest
+          - 5.40-bookworm
+          - 5.38-bookworm
+          - 5.36-bookworm
+          - 5.34-bullseye
+          - 5.32-bullseye
+          - 5.30-bullseye
+          - 5.28-buster
+          - 5.26-buster
+          - 5.24-buster
+          - 5.22-buster
+          - 5.20-buster
+          - 5.18-buster
+          - 5.16-buster
+          - 5.14-buster
+          - 5.12-buster
+          - 5.10-buster
 
     container:
       image: perl:${{ matrix.perl-version }}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: perl -V
         run: perl -V
       - name: Install Dependencies
@@ -84,7 +89,7 @@ jobs:
       PERL_USE_UNSAFE_INC: 0
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Set up Perl
         run: brew install perl
       - name: perl -V
@@ -103,7 +108,7 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Set up Perl
         run: |
           choco install strawberryperl
