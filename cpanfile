@@ -2,7 +2,7 @@
 # https://metacpan.org/release/Module-CPANfile
 # https://metacpan.org/pod/distribution/Module-CPANfile/lib/cpanfile.pod
 
-requires 'List::MoreUtils'               => 0;
+requires 'List::SomeUtils'               => 0;
 requires 'Perl::Critic'                  => 1.122;
 requires 'Perl::Critic::Policy'          => 0;
 requires 'Perl::Critic::PolicyFactory'   => 0;

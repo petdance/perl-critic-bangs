@@ -4,7 +4,7 @@ use warnings;
 
 our $VERSION = '1.14';
 
-use List::MoreUtils qw(any);
+use List::SomeUtils qw(any);
 use Readonly;
 use Perl::Critic::Utils qw( :severities );
 use base qw(Perl::Critic::Policy);
