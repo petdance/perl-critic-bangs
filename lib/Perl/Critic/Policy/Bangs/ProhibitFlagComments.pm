@@ -17,6 +17,12 @@ sub supported_parameters {
             behavior       => 'string list',
             default_string => 'XXX FIXME TODO',
         },
+        {
+            name           => 'exempt_pod',
+            description    => 'Flag to enable exemption of policy evaluation in POD context.',
+            default_string => '0',
+            behavior       => 'boolean',
+        },
     );
 }
 
@@ -24,11 +30,15 @@ sub default_severity     { return $SEVERITY_LOW                             }
 sub default_themes       { return qw( bangs maintenance )                   }
 sub applies_to           { return qw( PPI::Token::Comment PPI::Token::Pod ) }
 
-
 #---------------------------------------------------------------------------
 
 sub violates {
     my ( $self, $elem, $doc ) = @_;
+
+    #We are in POD context, so we consider the exempt POD parameter
+    if (ref $elem eq 'PPI::Token::Pod' and $self->{_exempt_pod}) {
+        return;
+    }
 
     foreach my $keyword ( keys %{ $self->{'_keywords'} } ) {
         if ( $elem->content() =~ /\b\Q$keyword\E\b/ ) {
@@ -67,6 +77,14 @@ in your F<.perlcriticrc> file like this:
 
   [Bangs::ProhibitFlagComments]
   keywords = XXX TODO FIXME BUG REVIEW
+
+In addition you can enable exemption of examination of POD sections
+using the exempt_pod flag.
+
+  [Bangs::ProhibitFlagComments]
+  exempt_pod = 1
+
+POD is not exempted by default
 
 =head1 AUTHOR
 
